@@ -11,6 +11,6 @@
 **Käyttäjät:** Pelaaja
 
 **Pelaajan toiminnot:** 
-  -Liiku vasemmalle
-  -Liiku oikealle
-  -Hyppää
+  *Liiku vasemmalle
+  *Liiku oikealle
+  *Hyppää
