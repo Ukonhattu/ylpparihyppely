@@ -1,0 +1,28 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ylpparihyppely.GameObjects;
+
+/**
+ *
+ * @author daniel
+ */
+public class Note extends Item{
+    
+    String text;
+    public Note(Location location, String name) {
+        super(location, name);
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+    
+    
+}
