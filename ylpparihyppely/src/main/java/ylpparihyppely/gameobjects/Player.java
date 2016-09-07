@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ylpparihyppely.GameObjects;
+package ylpparihyppely.gameobjects;
+
+import java.util.List;
 
 
 
@@ -21,4 +23,17 @@ public class Player extends Pawn {
         super(location, health);
 
     }
+
+
+    public List<Location> getHitbox() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
+
+ 
+
+
+
+
 }

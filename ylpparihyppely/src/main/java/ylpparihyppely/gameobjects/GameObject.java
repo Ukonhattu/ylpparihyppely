@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ylpparihyppely.GameObjects;
+package ylpparihyppely.gameobjects;
 
 /**
  *
  * @author daniel
  */
-abstract class GameObject {
+public abstract class GameObject {
     
     private Location location;
 
@@ -24,6 +24,9 @@ abstract class GameObject {
     public void setLocation(Location location) {
         this.location = location;
     }
+    
+    
+
     
     
 }

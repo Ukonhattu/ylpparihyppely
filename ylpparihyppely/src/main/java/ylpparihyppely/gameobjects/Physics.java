@@ -3,12 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ylpparihyppely.GameObjects;
+package ylpparihyppely.gameobjects;
 
 /**
  *
  * @author daniel
  */
-public interface PhysicsObject {
+public interface Physics extends Hitbox{
     
+    void applyGravity(int power);
+    boolean isMoving();
+    boolean isFalling();
+    boolean isOnGround();
+
 }

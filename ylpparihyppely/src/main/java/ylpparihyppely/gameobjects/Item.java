@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ylpparihyppely.GameObjects;
+package ylpparihyppely.gameobjects;
 
 /**
  *
  * @author daniel
  */
-abstract class Item extends GameObject implements CollectibleGameObject {
+abstract class Item extends GameObject implements CollectibleGameObject, Static {
 
     public String name;
     public Item(Location location, String name) {

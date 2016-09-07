@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ylpparihyppely.GameObjects;
+package ylpparihyppely.gameobjects;
+
+import java.util.List;
 
 /**
  *
  * @author daniel
  */
-public interface CollectibleGameObject {
+public interface HitboxMaker {
     
+    List<Location> makeHitbox();
 }

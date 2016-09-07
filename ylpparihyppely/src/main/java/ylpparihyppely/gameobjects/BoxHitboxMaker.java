@@ -1,0 +1,42 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ylpparihyppely.gameobjects;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+
+/**
+ *
+ * @author daniel
+ */
+public class BoxHitboxMaker implements HitboxMaker {
+    
+    private GameObject object;
+    private int width;
+    private int heigth;
+    
+    public BoxHitboxMaker(GameObject object, int width, int heigth) {
+        this.object = object;
+        this.width = width;
+        this.heigth = heigth;
+    }
+
+    public List<Location> makeHitbox() {
+        Location location = object.getLocation();
+        List<Location> hitbox = new ArrayList();
+        for (int i = location.getY(); i < heigth; i++) {
+            for (int j = location.getX(); j < width; j++) {
+                hitbox.add(new Location(j,i));
+            }
+        }
+        return hitbox;
+    }
+
+
+   
+}

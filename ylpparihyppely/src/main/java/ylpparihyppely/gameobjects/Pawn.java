@@ -3,16 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ylpparihyppely.GameObjects;
+package ylpparihyppely.gameobjects;
 
 /**
  *
  * @author daniel
  */
-abstract class Pawn extends GameObject implements PhysicsObject {
+abstract class Pawn extends PhysicsObject {
 
     private int health;
     private boolean isJumping;
+    private boolean onGround;
     private int dx;
     private int dy;
     private int speed;
@@ -50,6 +51,16 @@ abstract class Pawn extends GameObject implements PhysicsObject {
     
     public int getSpeed() {
         return this.speed;
+    }
+    
+    @Override  
+    public boolean isMoving() {
+        return !(dy == 0 && dx == 0);
+    }
+    
+    @Override
+    public boolean isOnGround() {
+        return onGround;
     }
     
 }
