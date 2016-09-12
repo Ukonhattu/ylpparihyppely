@@ -24,22 +24,28 @@ public class CollisionHandler {
         return set.size() < hitbox1.size();
     }
     
-    public void handleCollideWithPhysics(Physics collider, List<Physics> object) {
+    public boolean handleCollideWithPhysics(Physics collider, List<Physics> object) {
         object.remove(collider);
+        boolean collided = false;
         for (Physics p: object) {
             if(isColliding(collider.getHitbox(), p.getHitbox())) {
                 collider.onHit(p);
+                collided = true;
             }
         }
+        return collided;
     
     }
     
-    public void handleCollideWithStatic(Physics collider, List<Static> object) {
+    public boolean handleCollideWithStatic(Physics collider, List<Static> object) {
+        boolean collided = false;
         for (Static s: object) {
             if (isColliding(collider.getHitbox(), s.getHitbox())) {
                 collider.onHit(s);
+                collided = true;
             }
         }
+        return collided;
     }
     
 }

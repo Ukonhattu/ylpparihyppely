@@ -29,6 +29,8 @@ public class SimplePhysicsEngine implements PhysicsEngine{
         }
     }
     
+    @Override
+    //Give this every object you have on your map
     public void applyCollisions(List<Physics> physicsObject, List<Static> staticObject) {
         for (Physics o: physicsObject) {
             if (o.isMoving() || o.isFalling()) {
@@ -36,5 +38,20 @@ public class SimplePhysicsEngine implements PhysicsEngine{
             }
         }
     }
+
+    @Override
+    public void applyMovements(List<Physics> physicsObject,List<Static> staticObject) {
+        /********* !! This does not test if wantedLocation is colliding but if current location is colliding
+        this can cause problems with collisions but is good enough for this project    ********/
+        for (Physics o: physicsObject) {
+           boolean collidedPhysics = collisionHandler.handleCollideWithPhysics(o, physicsObject);
+           boolean collidedStatic = collisionHandler.handleCollideWithStatic(o, staticObject);
+           if (!(collidedPhysics && collidedStatic)) {
+               o.moveTo(o.whereYouWannaMove());
+           }
+        }
+    }
+
+
     
 }

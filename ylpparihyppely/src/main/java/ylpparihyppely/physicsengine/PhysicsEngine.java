@@ -18,5 +18,5 @@ public interface PhysicsEngine {
     
     void applyGravity(List<Physics> object);
     void applyCollisions(List<Physics> physicsObject, List<Static> staticObject);
-    
+    void applyMovements(List<Physics> physicObject, List<Static> staticObject);
 }

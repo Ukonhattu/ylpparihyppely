@@ -15,5 +15,7 @@ public interface Physics extends Hitbox{
     boolean isMoving();
     boolean isFalling();
     boolean isOnGround();
+    Location whereYouWannaMove();
+    void moveTo(Location location);
 
 }

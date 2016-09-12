@@ -11,16 +11,19 @@ package ylpparihyppely.gameobjects;
  */
 abstract class PhysicsObject extends GameObject implements Physics{
     
-    private final int gravityScale;
+    protected final int gravityScale;
     private boolean falling;
+    protected Location wantedLocation;
 
     public PhysicsObject(Location location, int gravityScale) {
         super(location);
         this.gravityScale = gravityScale;
+        this.wantedLocation = super.getLocation();
         falling = false;
     }
     public PhysicsObject(Location location) {
         super(location);
+        this.wantedLocation = super.getLocation();
         this.gravityScale = 1;
     }
     
@@ -29,13 +32,23 @@ abstract class PhysicsObject extends GameObject implements Physics{
     public void applyGravity(int power){
         Location location = this.getLocation();
         Location newLocation = new Location(location.getX(), location.getY() - power*this.gravityScale);
-        this.setLocation(newLocation);
-        falling = (!location.equals(newLocation));
+        this.wantedLocation = newLocation;
+        falling = !location.equals(newLocation);
+    }
+    
+    @Override
+    public Location whereYouWannaMove() {
+        return wantedLocation;
     }
     
     @Override
     public boolean isFalling() {
         return this.falling;
+    }
+    
+    @Override
+    public void moveTo(Location location) {
+        this.setLocation(location);
     }
 
     

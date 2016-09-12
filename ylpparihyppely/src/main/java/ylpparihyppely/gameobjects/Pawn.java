@@ -30,8 +30,9 @@ abstract class Pawn extends PhysicsObject {
     public void move() {
         Location location = this.getLocation();
         Location newLocation = new Location(location.getX()+this.dx, location.getY()+this.dy);
-        this.setLocation(newLocation);
+        this.wantedLocation = newLocation;
     }
+    
 
     public void jump() {
         this.isJumping = true;
