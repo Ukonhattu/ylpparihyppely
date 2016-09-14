@@ -70,6 +70,10 @@ abstract class Pawn extends PhysicsObject {
     private void canJumpAgain() {
         this.canJump = true;
     }
+    
+    public boolean canJump() {
+        return this.canJump;
+    }
 
     public void stopJump() {
         this.isJumping = false;

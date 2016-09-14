@@ -25,5 +25,6 @@ public interface Physics extends Hitbox{
     Location getGravityLocation();
     List<Location> getGravityHitbox();
     boolean isJumping();
+    boolean canJump();
 
 }
