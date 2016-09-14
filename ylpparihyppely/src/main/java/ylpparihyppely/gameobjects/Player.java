@@ -18,25 +18,26 @@ public class Player extends Pawn {
 
     Inventory inventory;
     String name;
+    HitboxMaker hitboxMaker;
 
     public Player(Location location, int health) {
         super(location, health);
+        this.hitboxMaker = new BoxHitboxMaker(this, 40,40);
+        
 
     }
 
 
     public List<Location> getHitbox() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.hitboxMaker.makeHitbox();
     }
 
     @Override
     public void onHit(Static otherObject) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void onHit(Physics otherObject) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 

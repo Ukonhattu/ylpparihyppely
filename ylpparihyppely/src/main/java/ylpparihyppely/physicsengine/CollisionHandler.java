@@ -17,29 +17,35 @@ import ylpparihyppely.gameobjects.Static;
  * @author daniel
  */
 public class CollisionHandler {
-    
+
     public boolean isColliding(List<Location> hitbox1, List<Location> hitbox2) {
+
         hitbox1.addAll(hitbox2);
         Set<Location> set = new HashSet<>(hitbox1);
+
+        
         return set.size() < hitbox1.size();
     }
-    
+
     public boolean handleCollideWithPhysics(Physics collider, List<Physics> object) {
-        object.remove(collider);
+
         boolean collided = false;
-        for (Physics p: object) {
-            if(isColliding(collider.getHitbox(), p.getHitbox())) {
+        for (Physics p : object) {
+            if (collider.equals(p)) {
+                continue;
+            }
+            if (isColliding(collider.getHitbox(), p.getHitbox())) {
                 collider.onHit(p);
                 collided = true;
             }
         }
         return collided;
-    
+
     }
-    
+
     public boolean handleCollideWithStatic(Physics collider, List<Static> object) {
         boolean collided = false;
-        for (Static s: object) {
+        for (Static s : object) {
             if (isColliding(collider.getHitbox(), s.getHitbox())) {
                 collider.onHit(s);
                 collided = true;
@@ -47,5 +53,5 @@ public class CollisionHandler {
         }
         return collided;
     }
-    
+
 }

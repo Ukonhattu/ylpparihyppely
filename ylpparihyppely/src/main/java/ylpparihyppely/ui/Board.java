@@ -9,52 +9,91 @@ package ylpparihyppely.ui;
  *
  * @author daxda
  */
-import java.awt.BasicStroke;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import java.awt.geom.AffineTransform;
-import java.awt.geom.Ellipse2D;
-
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JPanel;
+import javax.swing.Timer;
+import ylpparihyppely.gameobjects.Block;
+import ylpparihyppely.gameobjects.Location;
+import ylpparihyppely.gameobjects.Physics;
+import ylpparihyppely.gameobjects.Player;
+import ylpparihyppely.gameobjects.Static;
+import ylpparihyppely.physicsengine.PhysicsEngine;
+import ylpparihyppely.physicsengine.SimplePhysicsEngine;
 
-public class Board extends JPanel {
+public class Board extends JPanel implements ActionListener {
+
+    private Timer timer;
+
+    private final int DELAY = 10;
+
+    private PhysicsEngine physicsEngine;
+    private List<Static> staticObject;
+    private List<Physics> physicObject;
+
+    public Board() {
+
+        initBoard();
+        this.physicsEngine = new SimplePhysicsEngine(1);
+        this.staticObject = new ArrayList();
+        this.physicObject = new ArrayList();
+
+        Physics player = new Player(new Location(40, 50), 100);
+        this.physicObject.add(player);
+
+        Static block = new Block(new Location(40, 150), 30, 150);
+        this.staticObject.add(block);
+    }
+
+    private void initBoard() {
+
+        setFocusable(true);
+        setBackground(Color.BLACK);
+
+        timer = new Timer(DELAY, this);
+        timer.start();
+
+    }
 
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        drawDonut(g);
+        doDrawing(g);
+
+        Toolkit.getDefaultToolkit().sync();
     }
 
-    private void drawDonut(Graphics g) {
+    private void doDrawing(Graphics g) {
 
         Graphics2D g2d = (Graphics2D) g;
 
-        RenderingHints rh
-                = new RenderingHints(RenderingHints.KEY_ANTIALIASING,
-                        RenderingHints.VALUE_ANTIALIAS_ON);
-
-        rh.put(RenderingHints.KEY_RENDERING,
-                RenderingHints.VALUE_RENDER_QUALITY);
-
-        g2d.setRenderingHints(rh);
-
-        Dimension size = getSize();
-        double w = size.getWidth();
-        double h = size.getHeight();
-
-        Ellipse2D e = new Ellipse2D.Double(0, 0, 80, 130);
-        g2d.setStroke(new BasicStroke(1));
-        g2d.setColor(Color.gray);
-
-        for (double deg = 0; deg < 360; deg += 5) {
-            AffineTransform at
-                    = AffineTransform.getTranslateInstance(w/2, h/2);
-            at.rotate(Math.toRadians(deg));
-            g2d.draw(at.createTransformedShape(e));
+        g2d.setColor(Color.red);
+        for (Physics p : this.physicObject) {
+            Location l = p.getLocation();
+            g2d.fillRect(l.getX(), l.getY(), 40, 40);
         }
+        for (Static s : this.staticObject) {
+            Location l = s.getLocation();
+            g2d.fillRect(l.getX(), l.getY(), s.getWidth(), s.getHeigth());
+        }
+
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        this.physicsEngine.applyGravity(physicObject);
+        this.physicsEngine.applyMovements(physicObject, staticObject);
+        repaint();
+
+    }
+
 }

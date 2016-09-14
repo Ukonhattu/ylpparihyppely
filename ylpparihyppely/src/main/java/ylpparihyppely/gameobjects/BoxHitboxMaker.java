@@ -26,11 +26,12 @@ public class BoxHitboxMaker implements HitboxMaker {
         this.heigth = heigth;
     }
 
+    @Override
     public List<Location> makeHitbox() {
         Location location = object.getLocation();
         List<Location> hitbox = new ArrayList();
-        for (int i = location.getY(); i < heigth; i++) {
-            for (int j = location.getX(); j < width; j++) {
+        for (int i = location.getY(); i < location.getY()+heigth; i++) {
+            for (int j = location.getX(); j < location.getX()+width; j++) {
                 hitbox.add(new Location(j,i));
             }
         }

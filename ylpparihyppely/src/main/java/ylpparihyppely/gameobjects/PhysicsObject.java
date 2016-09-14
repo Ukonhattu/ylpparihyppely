@@ -31,8 +31,9 @@ abstract class PhysicsObject extends GameObject implements Physics{
     @Override
     public void applyGravity(int power){
         Location location = this.getLocation();
-        Location newLocation = new Location(location.getX(), location.getY() - power*this.gravityScale);
+        Location newLocation = new Location(location.getX(), location.getY() + power*this.gravityScale);
         this.wantedLocation = newLocation;
+        //System.out.println("wanted location: " + newLocation.getY());
         falling = !location.equals(newLocation);
     }
     

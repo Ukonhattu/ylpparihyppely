@@ -11,8 +11,8 @@ package ylpparihyppely.gameobjects;
  */
 public class Location {
 
-    private int x;
-    private int y;
+    private final int x;
+    private final int y;
 
     public Location(int x, int y) {
         this.x = x;
@@ -51,10 +51,7 @@ public class Location {
         if (this.x != other.x) {
             return false;
         }
-        if (this.y != other.y) {
-            return false;
-        }
-        return true;
+        return this.y == other.y;
     }
     
     

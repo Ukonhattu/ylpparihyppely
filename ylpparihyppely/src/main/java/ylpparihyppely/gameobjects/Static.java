@@ -10,5 +10,7 @@ package ylpparihyppely.gameobjects;
  * @author daniel
  */
 public interface Static extends Hitbox{
-    
+    public Location getLocation();
+    public int getHeigth();
+    public int getWidth();
 }

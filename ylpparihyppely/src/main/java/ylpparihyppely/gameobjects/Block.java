@@ -12,8 +12,9 @@ import java.util.List;
  * @author daniel
  */
 public class Block extends GameObject  implements Static{
-    int heigth;
-    int width;
+    private int heigth;
+    private int width;
+    private HitboxMaker hitboxMaker;
 
     public int getHeigth() {
         return heigth;
@@ -28,23 +29,22 @@ public class Block extends GameObject  implements Static{
         super(location);
         this.heigth = heigth;
         this.width = width;
+        this.hitboxMaker = new BoxHitboxMaker(this, this.width, this.heigth);
     }
 
 
 
     @Override
     public void onHit(Static otherObject) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public List<Location> getHitbox() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.hitboxMaker.makeHitbox();
     }
 
     @Override
     public void onHit(Physics otherObject) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 
