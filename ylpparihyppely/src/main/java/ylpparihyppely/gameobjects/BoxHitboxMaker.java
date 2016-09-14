@@ -8,18 +8,16 @@ package ylpparihyppely.gameobjects;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 /**
  *
  * @author daniel
  */
 public class BoxHitboxMaker implements HitboxMaker {
-    
+
     private GameObject object;
     private int width;
     private int heigth;
-    
+
     public BoxHitboxMaker(GameObject object, int width, int heigth) {
         this.object = object;
         this.width = width;
@@ -28,16 +26,26 @@ public class BoxHitboxMaker implements HitboxMaker {
 
     @Override
     public List<Location> makeHitbox() {
-        Location location = object.getLocation();
+        Location location = object.getHitboxLocation();
         List<Location> hitbox = new ArrayList();
-        for (int i = location.getY(); i < location.getY()+heigth; i++) {
-            for (int j = location.getX(); j < location.getX()+width; j++) {
-                hitbox.add(new Location(j,i));
+        for (int i = location.getY(); i < location.getY() + heigth; i++) {
+            for (int j = location.getX(); j < location.getX() + width; j++) {
+                hitbox.add(new Location(j, i));
             }
         }
         return hitbox;
     }
 
+    @Override
+    public List<Location> makeGravityHitbox() {
+        Location location = object.getGravityHitboxLocation();
+        List<Location> hitbox = new ArrayList();
+        for (int i = location.getY(); i < location.getY() + heigth; i++) {
+            for (int j = location.getX(); j < location.getX() + width; j++) {
+                hitbox.add(new Location(j, i));
+            }
+        }
+        return hitbox;
+    }
 
-   
 }

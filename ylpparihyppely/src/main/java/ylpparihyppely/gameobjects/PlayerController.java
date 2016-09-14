@@ -16,8 +16,8 @@ public class PlayerController implements Controller, KeyListener {
 
     private Player player;
 
-    public PlayerController(Player player) {
-        this.player = player;
+    public PlayerController(Physics player) {
+        this.player = (Player) player;
     }
 
     @Override
@@ -33,12 +33,8 @@ public class PlayerController implements Controller, KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_A) {
             player.setDx(-player.getSpeed());
         }
-        if (e.getKeyCode() == KeyEvent.VK_W) {
-            player.setDy(player.getSpeed());
-        }
-        if (e.getKeyCode() == KeyEvent.VK_D) {
-            player.setDy(-player.getSpeed());
-        }
+
+
 
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             player.jump();
@@ -51,9 +47,7 @@ public class PlayerController implements Controller, KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_A) {
             player.setDx(0);
         }
-        if (e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_D) {
-            player.setDy(0);
-        }
+
 
     }
 

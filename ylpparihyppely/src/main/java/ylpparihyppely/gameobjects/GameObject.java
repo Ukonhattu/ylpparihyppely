@@ -20,6 +20,9 @@ public abstract class GameObject {
     public Location getLocation() {
         return location;
     }
+    
+    abstract Location getHitboxLocation();
+    abstract Location getGravityHitboxLocation();
 
     public void setLocation(Location location) {
         this.location = location;

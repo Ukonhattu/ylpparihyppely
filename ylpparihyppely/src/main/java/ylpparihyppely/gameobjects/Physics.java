@@ -5,6 +5,8 @@
  */
 package ylpparihyppely.gameobjects;
 
+import java.util.List;
+
 /**
  *
  * @author daniel
@@ -16,7 +18,12 @@ public interface Physics extends Hitbox{
     boolean isFalling();
     boolean isOnGround();
     Location whereYouWannaMove();
+    void setWantedLocation(Location location);
     void moveTo(Location location);
     Location getLocation();
+    void tryMove();
+    Location getGravityLocation();
+    List<Location> getGravityHitbox();
+    boolean isJumping();
 
 }

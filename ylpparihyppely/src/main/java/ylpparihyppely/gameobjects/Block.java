@@ -47,6 +47,17 @@ public class Block extends GameObject  implements Static{
     public void onHit(Physics otherObject) {
     }
 
+    @Override
+    Location getHitboxLocation() {
+        return this.getLocation();
+        
+    }
+
+    @Override
+    Location getGravityHitboxLocation() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 
     
 }

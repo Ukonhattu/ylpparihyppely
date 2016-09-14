@@ -25,6 +25,7 @@ import ylpparihyppely.gameobjects.Block;
 import ylpparihyppely.gameobjects.Location;
 import ylpparihyppely.gameobjects.Physics;
 import ylpparihyppely.gameobjects.Player;
+import ylpparihyppely.gameobjects.PlayerController;
 import ylpparihyppely.gameobjects.Static;
 import ylpparihyppely.physicsengine.PhysicsEngine;
 import ylpparihyppely.physicsengine.SimplePhysicsEngine;
@@ -41,7 +42,7 @@ public class Board extends JPanel implements ActionListener {
 
     public Board() {
 
-        initBoard();
+        
         this.physicsEngine = new SimplePhysicsEngine(1);
         this.staticObject = new ArrayList();
         this.physicObject = new ArrayList();
@@ -51,10 +52,12 @@ public class Board extends JPanel implements ActionListener {
 
         Static block = new Block(new Location(40, 150), 30, 150);
         this.staticObject.add(block);
+
+        initBoard(player);
     }
 
-    private void initBoard() {
-
+    private void initBoard(Physics player) {
+        addKeyListener(new PlayerController(player));
         setFocusable(true);
         setBackground(Color.BLACK);
 
@@ -91,9 +94,17 @@ public class Board extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         this.physicsEngine.applyGravity(physicObject);
+        this.physicsEngine.applyGravityMovements(physicObject, staticObject);
+        tryMovements();
         this.physicsEngine.applyMovements(physicObject, staticObject);
         repaint();
 
+    }
+    
+    private void tryMovements() {
+        for (Physics p: this.physicObject) {
+            p.tryMove();
+        }
     }
 
 }
