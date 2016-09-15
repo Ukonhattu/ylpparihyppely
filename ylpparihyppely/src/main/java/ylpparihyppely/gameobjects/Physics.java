@@ -11,20 +11,32 @@ import java.util.List;
  *
  * @author daniel
  */
-public interface Physics extends Hitbox{
-    
+public interface Physics extends Hitbox {
+
     void applyGravity(int power);
+
     boolean isMoving();
+
     boolean isFalling();
+
     boolean isOnGround();
+
     Location whereYouWannaMove();
+
     void setWantedLocation(Location location);
+
     void moveTo(Location location);
+
     Location getLocation();
+
     void tryMove();
+
     Location getGravityLocation();
+
     List<Location> getGravityHitbox();
+
     boolean isJumping();
+
     boolean canJump();
 
 }

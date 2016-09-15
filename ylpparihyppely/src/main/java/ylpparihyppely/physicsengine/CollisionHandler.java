@@ -67,7 +67,8 @@ public class CollisionHandler {
         }
         return collided;
     }
-        public boolean gravityCollideWithStatic(Physics collider, List<Static> object) {
+
+    public boolean gravityCollideWithStatic(Physics collider, List<Static> object) {
         boolean collided = false;
         for (Static s : object) {
             if (isColliding(collider.getGravityHitbox(), s.getHitbox())) {

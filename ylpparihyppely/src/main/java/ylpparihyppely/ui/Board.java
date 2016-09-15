@@ -34,7 +34,7 @@ public class Board extends JPanel implements ActionListener {
 
     private Timer timer;
 
-    private final int DELAY = 10;
+    private final int delay = 10;
 
     private PhysicsEngine physicsEngine;
     private List<Static> staticObject;
@@ -42,7 +42,6 @@ public class Board extends JPanel implements ActionListener {
 
     public Board() {
 
-        
         this.physicsEngine = new SimplePhysicsEngine(1);
         this.staticObject = new ArrayList();
         this.physicObject = new ArrayList();
@@ -61,7 +60,7 @@ public class Board extends JPanel implements ActionListener {
         setFocusable(true);
         setBackground(Color.BLACK);
 
-        timer = new Timer(DELAY, this);
+        timer = new Timer(delay, this);
         timer.start();
 
     }
@@ -100,9 +99,9 @@ public class Board extends JPanel implements ActionListener {
         repaint();
 
     }
-    
+
     private void tryMovements() {
-        for (Physics p: this.physicObject) {
+        for (Physics p : this.physicObject) {
             p.tryMove();
         }
     }

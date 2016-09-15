@@ -7,14 +7,11 @@ package ylpparihyppely.gameobjects;
 
 import java.util.List;
 
-
-
 /**
  *
  * @author daniel
  */
 public class Player extends Pawn {
-    
 
     Inventory inventory;
     String name;
@@ -22,11 +19,9 @@ public class Player extends Pawn {
 
     public Player(Location location, int health) {
         super(location, health);
-        this.hitboxMaker = new BoxHitboxMaker(this, 40,40);
-        
+        this.hitboxMaker = new BoxHitboxMaker(this, 40, 40);
 
     }
-
 
     public List<Location> getHitbox() {
         return this.hitboxMaker.makeHitbox();
@@ -44,16 +39,5 @@ public class Player extends Pawn {
     public List<Location> getGravityHitbox() {
         return this.hitboxMaker.makeGravityHitbox();
     }
-
-
-
-
-
-
-
- 
-
-
-
 
 }

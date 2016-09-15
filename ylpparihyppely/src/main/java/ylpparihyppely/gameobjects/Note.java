@@ -11,9 +11,10 @@ import java.util.List;
  *
  * @author daniel
  */
-public class Note extends Item{
-    
+public class Note extends Item {
+
     String text;
+
     public Note(Location location, String name) {
         super(location, name);
     }
@@ -61,6 +62,4 @@ public class Note extends Item{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-
-    
 }

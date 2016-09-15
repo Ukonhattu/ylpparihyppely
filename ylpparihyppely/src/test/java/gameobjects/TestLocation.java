@@ -17,9 +17,9 @@ import ylpparihyppely.gameobjects.Location;
  *
  * @author daxda
  */
-public class testLocation {
+public class TestLocation {
     Location location;
-    public testLocation() {
+    public TestLocation() {
     }
     
     @BeforeClass
@@ -43,5 +43,17 @@ public class testLocation {
     public void testToString() {
         System.out.println(this.location);
         assertEquals(true, this.location.toString().equals("Location{x=30, y=50}"));
+    }
+    
+    @Test
+    public void testEqualsOnSame() {
+        Location other = new Location(30,50);
+        assertEquals(true, this.location.equals(other));
+    }
+    
+    @Test
+    public void testEqualsNotSame() {
+        Location other = new Location(30,60);
+        assertEquals(false, this.location.equals(other));
     }
 }

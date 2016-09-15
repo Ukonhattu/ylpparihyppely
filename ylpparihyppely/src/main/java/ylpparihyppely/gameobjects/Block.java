@@ -11,7 +11,8 @@ import java.util.List;
  *
  * @author daniel
  */
-public class Block extends GameObject  implements Static{
+public class Block extends GameObject implements Static {
+
     private int heigth;
     private int width;
     private HitboxMaker hitboxMaker;
@@ -23,7 +24,6 @@ public class Block extends GameObject  implements Static{
     public int getWidth() {
         return width;
     }
-    
 
     public Block(Location location, int heigth, int width) {
         super(location);
@@ -31,8 +31,6 @@ public class Block extends GameObject  implements Static{
         this.width = width;
         this.hitboxMaker = new BoxHitboxMaker(this, this.width, this.heigth);
     }
-
-
 
     @Override
     public void onHit(Static otherObject) {
@@ -50,7 +48,7 @@ public class Block extends GameObject  implements Static{
     @Override
     Location getHitboxLocation() {
         return this.getLocation();
-        
+
     }
 
     @Override
@@ -58,6 +56,4 @@ public class Block extends GameObject  implements Static{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-
-    
 }

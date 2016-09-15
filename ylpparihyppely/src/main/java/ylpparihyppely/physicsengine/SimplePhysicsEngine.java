@@ -14,22 +14,22 @@ import ylpparihyppely.gameobjects.Static;
  * @author daniel
  */
 public class SimplePhysicsEngine implements PhysicsEngine {
-    
+
     private int gPower;
     private CollisionHandler collisionHandler;
-    
+
     public SimplePhysicsEngine(int gPower) {
         this.gPower = gPower;
         this.collisionHandler = new CollisionHandler();
     }
-    
+
     @Override
     public void applyGravity(List<Physics> object) {
         for (Physics o : object) {
             o.applyGravity(gPower);
         }
     }
-    
+
     @Override
     public void applyGravityMovements(List<Physics> physicsObject, List<Static> staticObject) {
         for (Physics o : physicsObject) {
@@ -39,24 +39,15 @@ public class SimplePhysicsEngine implements PhysicsEngine {
 
                 o.moveTo(o.getGravityLocation());
 
-                
             }
         }
     }
-    
-    @Override
-    //Give this every object you have on your map
-    public void applyCollisions(List<Physics> physicsObject, List<Static> staticObject) {
-        for (Physics o : physicsObject) {
-            if (o.isMoving() || o.isFalling()) {
-                // DO  NOT USE IS NOT ACTIVE
-            }
-        }
-    }
-    
+
+
+
     @Override
     public void applyMovements(List<Physics> physicsObject, List<Static> staticObject) {
-        
+
         for (Physics o : physicsObject) {
             boolean collidedPhysics = collisionHandler.handleCollideWithPhysics(o, physicsObject);
             boolean collidedStatic = collisionHandler.handleCollideWithStatic(o, staticObject);
@@ -68,5 +59,5 @@ public class SimplePhysicsEngine implements PhysicsEngine {
             }
         }
     }
-    
+
 }
