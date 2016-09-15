@@ -16,3 +16,4 @@
   * Hyppää
 
 **Luokkakaavio**
+![](/luokkakaavio.png)
