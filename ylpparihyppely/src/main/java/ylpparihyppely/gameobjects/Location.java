@@ -19,6 +19,11 @@ public class Location {
         this.y = y;
     }
 
+    @Override
+    public String toString() {
+        return "Location{" + "x=" + x + ", y=" + y + '}';
+    }
+
     public int getX() {
         return x;
     }
