@@ -14,3 +14,5 @@
   * Liiku vasemmalle
   * Liiku oikealle
   * Hyppää
+
+**Luokkakaavio**
