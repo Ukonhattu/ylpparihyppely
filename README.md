@@ -1,6 +1,6 @@
 # ylpparihyppely
 
-[**Aiheen kuvaus**](dokumentaatio/aiheJaRakenne)
+[**Aiheen kuvaus**](dokumentaatio/aiheJaRakenne.md)
 Pieni tasohyppelypeli rakennettu kokonaan ilman apukirjastoja.
 
 #Dokumentaatio
