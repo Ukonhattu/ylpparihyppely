@@ -44,7 +44,6 @@ abstract class Pawn extends PhysicsObject {
         Location newLocation = new Location(location.getX() + this.dx, location.getY() + this.dy);
         if (this.isJumping || this.jumpTime > 0) {
             this.jumpTime--;
-            System.out.println(this.jumpTime);
             if (this.jumpTime <= 0) {
                 canJumpAgain();
             }
@@ -62,7 +61,7 @@ abstract class Pawn extends PhysicsObject {
 
         if (this.canJump) {
             this.isJumping = true;
-            this.jumpTime = 200;
+            this.jumpTime = 230;
             this.canJump = false;
         }
     }

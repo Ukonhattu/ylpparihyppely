@@ -14,5 +14,5 @@ import java.util.List;
 public interface HitboxMaker {
     
     List<Location> makeHitbox();
-    List<Location> makeGravityHitbox();
+
 }

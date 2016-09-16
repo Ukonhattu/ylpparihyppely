@@ -22,7 +22,7 @@ public abstract class GameObject {
     }
     
     abstract Location getHitboxLocation();
-    abstract Location getGravityHitboxLocation();
+
 
     public void setLocation(Location location) {
         this.location = location;

@@ -46,11 +46,13 @@ public class Board extends JPanel implements ActionListener {
         this.staticObject = new ArrayList();
         this.physicObject = new ArrayList();
 
-        Physics player = new Player(new Location(40, 50), 100);
+        Physics player = new Player(new Location(40, 200), 100);
         this.physicObject.add(player);
 
-        Static block = new Block(new Location(40, 150), 30, 150);
+        Static block = new Block(new Location(40, 250), 30, 150);
         this.staticObject.add(block);
+        Static block2 = new Block(new Location(40, 150), 30, 250);
+        this.staticObject.add(block2);
 
         initBoard(player);
     }
@@ -93,7 +95,7 @@ public class Board extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         this.physicsEngine.applyGravity(physicObject);
-        this.physicsEngine.applyGravityMovements(physicObject, staticObject);
+        //this.physicsEngine.applyGravityMovements(physicObject, staticObject);
         tryMovements();
         this.physicsEngine.applyMovements(physicObject, staticObject);
         repaint();

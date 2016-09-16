@@ -31,9 +31,8 @@ public interface Physics extends Hitbox {
 
     void tryMove();
 
-    Location getGravityLocation();
 
-    List<Location> getGravityHitbox();
+
 
     boolean isJumping();
 

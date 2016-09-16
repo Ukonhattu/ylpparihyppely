@@ -14,7 +14,6 @@ abstract class PhysicsObject extends GameObject implements Physics {
     protected final int gravityScale;
     private boolean falling;
     protected Location wantedLocation;
-    protected Location gravityLocation;
 
     public PhysicsObject(Location location, int gravityScale) {
         super(location);
@@ -33,7 +32,7 @@ abstract class PhysicsObject extends GameObject implements Physics {
     public void applyGravity(int power) {
         Location location = this.getLocation();
         Location newLocation = new Location(location.getX(), location.getY() + (power * this.gravityScale));
-        this.gravityLocation = newLocation;
+        this.wantedLocation = newLocation;
         falling = !location.equals(newLocation);
     }
 
@@ -47,10 +46,7 @@ abstract class PhysicsObject extends GameObject implements Physics {
         return wantedLocation;
     }
 
-    @Override
-    public Location getGravityHitboxLocation() {
-        return this.gravityLocation;
-    }
+
 
     @Override
     public void setWantedLocation(Location location) {
@@ -67,9 +63,6 @@ abstract class PhysicsObject extends GameObject implements Physics {
         this.setLocation(location);
     }
 
-    @Override
-    public Location getGravityLocation() {
-        return this.gravityLocation;
-    }
+
 
 }

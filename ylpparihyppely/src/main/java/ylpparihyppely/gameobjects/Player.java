@@ -35,9 +35,6 @@ public class Player extends Pawn {
     public void onHit(Physics otherObject) {
     }
 
-    @Override
-    public List<Location> getGravityHitbox() {
-        return this.hitboxMaker.makeGravityHitbox();
-    }
+
 
 }

@@ -30,19 +30,6 @@ public class SimplePhysicsEngine implements PhysicsEngine {
         }
     }
 
-    @Override
-    public void applyGravityMovements(List<Physics> physicsObject, List<Static> staticObject) {
-        for (Physics o : physicsObject) {
-            boolean collidedPhysics = collisionHandler.gravityCollideWithPhysics(o, physicsObject);
-            boolean collidedStatic = collisionHandler.gravityCollideWithStatic(o, staticObject);
-            if (!collidedPhysics && !collidedStatic) {
-
-                o.moveTo(o.getGravityLocation());
-
-            }
-        }
-    }
-
 
 
     @Override
@@ -52,9 +39,7 @@ public class SimplePhysicsEngine implements PhysicsEngine {
             boolean collidedPhysics = collisionHandler.handleCollideWithPhysics(o, physicsObject);
             boolean collidedStatic = collisionHandler.handleCollideWithStatic(o, staticObject);
             if (!collidedPhysics && !collidedStatic) {
-                if (o.getLocation().getY() > o.whereYouWannaMove().getY() && !o.isJumping()) {
-                    o.setWantedLocation(o.getLocation());
-                }
+
                 o.moveTo(o.whereYouWannaMove());
             }
         }

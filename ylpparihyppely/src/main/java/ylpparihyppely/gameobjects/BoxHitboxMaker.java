@@ -36,16 +36,6 @@ public class BoxHitboxMaker implements HitboxMaker {
         return hitbox;
     }
 
-    @Override
-    public List<Location> makeGravityHitbox() {
-        Location location = object.getGravityHitboxLocation();
-        List<Location> hitbox = new ArrayList();
-        for (int i = location.getY(); i < location.getY() + heigth; i++) {
-            for (int j = location.getX(); j < location.getX() + width; j++) {
-                hitbox.add(new Location(j, i));
-            }
-        }
-        return hitbox;
-    }
+
 
 }

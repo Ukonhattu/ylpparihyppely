@@ -19,6 +19,6 @@ public interface PhysicsEngine {
 
     void applyMovements(List<Physics> physicObject, List<Static> staticObject);
 
-    void applyGravityMovements(List<Physics> physicsObject, List<Static> staticObject);
+
 
 }
