@@ -51,7 +51,7 @@ public class Board extends JPanel implements ActionListener {
 
         Static block = new Block(new Location(40, 250), 30, 150);
         this.staticObject.add(block);
-        Static block2 = new Block(new Location(40, 150), 30, 250);
+        Static block2 = new Block(new Location(40, 50), 30, 250);
         this.staticObject.add(block2);
 
         initBoard(player);
@@ -97,6 +97,7 @@ public class Board extends JPanel implements ActionListener {
         this.physicsEngine.applyGravity(physicObject);
         //this.physicsEngine.applyGravityMovements(physicObject, staticObject);
         tryMovements();
+        
         this.physicsEngine.applyMovements(physicObject, staticObject);
         repaint();
 

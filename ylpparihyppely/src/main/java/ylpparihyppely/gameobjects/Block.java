@@ -51,9 +51,6 @@ public class Block extends GameObject implements Static {
 
     }
 
-    @Override
-    Location getGravityHitboxLocation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
 
 }

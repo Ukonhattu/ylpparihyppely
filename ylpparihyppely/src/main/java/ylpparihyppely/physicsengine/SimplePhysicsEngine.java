@@ -30,8 +30,6 @@ public class SimplePhysicsEngine implements PhysicsEngine {
         }
     }
 
-
-
     @Override
     public void applyMovements(List<Physics> physicsObject, List<Static> staticObject) {
 
@@ -41,7 +39,9 @@ public class SimplePhysicsEngine implements PhysicsEngine {
             if (!collidedPhysics && !collidedStatic) {
 
                 o.moveTo(o.whereYouWannaMove());
+                
             }
+            System.out.println(o.isFalling());
         }
     }
 
