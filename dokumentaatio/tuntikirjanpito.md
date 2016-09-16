@@ -9,3 +9,4 @@ Päivä | Tunnit | Kuvaus
 15.9.2016 | 2.5h |Lisätty testejä, luokkakaavio sekä pit- ja checkstyle raportit. Fysiikamoottorin koodi on kuraa. Kirjoitan kuitenkin ensin muita osia ja lopuksi, jos aikaa jää, kirjoitan fysiikkamoottorin uusiksi. (SimplePhysicsEngine.java)
 16.9.2016 | 0.5h | En kestänyt enää spagettifysiikkaa, vaan poistin kaiken purkan. SimplePhysicsEngine ei siis toimi tällä hetkellä ja seuraavaksi kartoitan kuinka laajoja muutoksia joudun tekemään.
 16.9.2016 | 0.5h | Pohdin uutta ratkaisua aikaisemman purkan tilalle. En haluaisi muuttaa koko systeemiä.
+16.9.2016 | 1h | onGround ja onAir toimii nyt
