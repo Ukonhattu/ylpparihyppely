@@ -17,7 +17,7 @@ public interface Physics extends Hitbox {
 
     boolean isMoving();
 
-    boolean isFalling();
+    boolean isOnAir();
 
     boolean isOnGround();
 

@@ -12,14 +12,14 @@ package ylpparihyppely.gameobjects;
 abstract class PhysicsObject extends GameObject implements Physics {
 
     protected final int gravityScale;
-    private boolean falling;
+    private boolean onAir;
     protected Location wantedLocation;
 
     public PhysicsObject(Location location, int gravityScale) {
         super(location);
         this.gravityScale = gravityScale;
         this.wantedLocation = super.getLocation();
-        falling = false;
+        onAir = false;
     }
 
     public PhysicsObject(Location location) {
@@ -45,23 +45,29 @@ abstract class PhysicsObject extends GameObject implements Physics {
         return wantedLocation;
     }
 
-
-
     @Override
     public void setWantedLocation(Location location) {
         this.wantedLocation = location;
     }
 
     @Override
-    public boolean isFalling() {
-        return this.falling;
+    public boolean isOnAir() {
+        return this.onAir;
     }
 
     @Override
     public void moveTo(Location location) {
+        if (this.getLocation().getY() != location.getY()) {
+            this.onAir = true;
+        } else {
+            this.onAir = false;
+        }
         this.setLocation(location);
     }
-
-
+    
+    @Override
+    public boolean isOnGround() {
+        return !this.onAir;
+    }
 
 }

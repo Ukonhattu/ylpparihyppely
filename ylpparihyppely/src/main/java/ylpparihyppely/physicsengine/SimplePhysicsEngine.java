@@ -40,8 +40,10 @@ public class SimplePhysicsEngine implements PhysicsEngine {
 
                 o.moveTo(o.whereYouWannaMove());
                 
+            } else {
+                o.moveTo(o.getLocation());
             }
-            System.out.println(o.isFalling());
+            System.out.println(o.isOnGround());
         }
     }
 

@@ -13,7 +13,6 @@ abstract class Pawn extends PhysicsObject {
 
     private int health;
     private boolean isJumping;
-    private boolean onGround;
     private int dx;
     private int dy;
     private int speed;
@@ -100,9 +99,6 @@ abstract class Pawn extends PhysicsObject {
         return !(dy == 0 && dx == 0);
     }
 
-    @Override
-    public boolean isOnGround() {
-        return onGround;
-    }
+
 
 }
