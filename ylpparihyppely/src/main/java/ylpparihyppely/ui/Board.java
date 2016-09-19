@@ -34,7 +34,7 @@ public class Board extends JPanel implements ActionListener {
 
     private Timer timer;
 
-    private final int delay = 100;
+    private final int delay = 10;
 
     private PhysicsEngine physicsEngine;
     private List<Static> staticObject;

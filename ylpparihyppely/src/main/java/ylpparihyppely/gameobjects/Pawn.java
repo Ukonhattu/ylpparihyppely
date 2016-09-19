@@ -17,7 +17,6 @@ abstract class Pawn extends PhysicsObject {
     private int dy;
     private int speed;
     private int jumpTime;
-    private boolean canJump;
 
     public Pawn(Location location, int health) {
         super(location);
@@ -27,7 +26,6 @@ abstract class Pawn extends PhysicsObject {
         this.dy = 0;
         this.speed = 1;
         this.jumpTime = 0;
-        this.canJump = true;
     }
 
     @Override
@@ -43,10 +41,8 @@ abstract class Pawn extends PhysicsObject {
         Location newLocation = new Location(location.getX() + this.dx, location.getY() + this.dy);
         if (this.isJumping || this.jumpTime > 0) {
             this.jumpTime--;
-            if (this.jumpTime <= 0) {
-                canJumpAgain();
-            }
-            if (this.jumpTime > 170) {
+
+            if (this.jumpTime > 0) {
                 newLocation = new Location(newLocation.getX(), newLocation.getY() - 2);
 
             } else {
@@ -58,20 +54,16 @@ abstract class Pawn extends PhysicsObject {
 
     public void jump() {
 
-        if (this.canJump) {
+        if (this.isOnGround()) {
             this.isJumping = true;
-            this.jumpTime = 230;
-            this.canJump = false;
+            this.jumpTime = 60;
+
         }
     }
 
-    private void canJumpAgain() {
-        this.canJump = true;
-    }
+
     
-    public boolean canJump() {
-        return this.canJump;
-    }
+
 
     public void stopJump() {
         this.isJumping = false;
@@ -81,10 +73,7 @@ abstract class Pawn extends PhysicsObject {
         this.dx = dx;
     }
 
-    @Override
-    public boolean isJumping() {
-        return this.isJumping;
-    }
+
 
     public void setDy(int dy) {
         this.dy = dy;

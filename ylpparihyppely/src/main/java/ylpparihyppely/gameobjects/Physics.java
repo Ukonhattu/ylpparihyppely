@@ -34,8 +34,4 @@ public interface Physics extends Hitbox {
 
 
 
-    boolean isJumping();
-
-    boolean canJump();
-
 }
