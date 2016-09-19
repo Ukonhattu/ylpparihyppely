@@ -14,6 +14,7 @@ abstract class PhysicsObject extends GameObject implements Physics {
     protected final int gravityScale;
     private boolean onAir;
     protected Location wantedLocation;
+    private Location oldLocation;
 
     public PhysicsObject(Location location, int gravityScale) {
         super(location);
@@ -30,9 +31,15 @@ abstract class PhysicsObject extends GameObject implements Physics {
 
     @Override
     public void applyGravity(int power) {
+        this.oldLocation = this.getLocation();
         Location location = this.getLocation();
         Location newLocation = new Location(location.getX(), location.getY() + (power * this.gravityScale));
         this.wantedLocation = newLocation;
+    }
+    
+    @Override
+    public void deGravity() {
+        this.wantedLocation = this.oldLocation;
     }
 
     @Override

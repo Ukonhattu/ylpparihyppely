@@ -14,6 +14,7 @@ import java.util.List;
 public interface Physics extends Hitbox {
 
     void applyGravity(int power);
+    void deGravity();
 
     boolean isMoving();
 

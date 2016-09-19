@@ -94,11 +94,11 @@ public class Board extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        this.physicsEngine.applyGravity(physicObject);
-        //this.physicsEngine.applyGravityMovements(physicObject, staticObject);
+        
         tryMovements();
         
         this.physicsEngine.applyMovements(physicObject, staticObject);
+        this.physicsEngine.applyGravity(physicObject, staticObject);
         repaint();
 
     }

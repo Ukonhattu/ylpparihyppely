@@ -24,9 +24,14 @@ public class SimplePhysicsEngine implements PhysicsEngine {
     }
 
     @Override
-    public void applyGravity(List<Physics> object) {
-        for (Physics o : object) {
+    public void applyGravity(List<Physics> physicsObject, List<Static> staticObject) {
+        for (Physics o : physicsObject) {
             o.applyGravity(gPower);
+            boolean collidedPhysics = collisionHandler.handleCollideWithPhysics(o, physicsObject);
+            boolean collidedStatic = collisionHandler.handleCollideWithStatic(o, staticObject);
+            if (collidedPhysics || collidedStatic) {
+                o.deGravity();
+            }
         }
     }
 
@@ -43,7 +48,7 @@ public class SimplePhysicsEngine implements PhysicsEngine {
             } else {
                 o.moveTo(o.getLocation());
             }
-            System.out.println(o.isOnGround());
+
         }
     }
 
