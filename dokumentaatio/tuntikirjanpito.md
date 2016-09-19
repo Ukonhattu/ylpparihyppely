@@ -10,3 +10,4 @@ Päivä | Tunnit | Kuvaus
 16.9.2016 | 0.5h | En kestänyt enää spagettifysiikkaa, vaan poistin kaiken purkan. SimplePhysicsEngine ei siis toimi tällä hetkellä ja seuraavaksi kartoitan kuinka laajoja muutoksia joudun tekemään.
 16.9.2016 | 0.5h | Pohdin uutta ratkaisua aikaisemman purkan tilalle. En haluaisi muuttaa koko systeemiä.
 16.9.2016 | 1h | onGround ja onAir toimii nyt
+19.9.2016 | 2h | Siistitty koodia ja saatu SimplePhysicEngine toimimaan
