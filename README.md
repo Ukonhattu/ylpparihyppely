@@ -8,3 +8,6 @@ Pieni tasohyppelypeli rakennettu kokonaan ilman apukirjastoja.
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 [Checkstyle](dokumentaatio/site/)
 [Pit](dokumentaatio/pit)
+
+#Ohjeita
+Controls: A,D,Space
