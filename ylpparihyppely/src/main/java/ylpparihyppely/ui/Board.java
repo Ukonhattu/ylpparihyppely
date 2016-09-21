@@ -15,8 +15,7 @@ import java.awt.Graphics2D;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPanel;
@@ -39,22 +38,20 @@ public class Board extends JPanel implements ActionListener {
     private PhysicsEngine physicsEngine;
     private List<Static> staticObject;
     private List<Physics> physicObject;
+    private MapCreator mapCreator;
 
     public Board() {
-
+        
+        File map = new File("/home/daniel/ylpparihyppely/ylpparihyppely/src/main/java/ylpparihyppely/ui/firstMap.txt");
+        this.mapCreator = new MapCreatorFile(map);
+        this.mapCreator.constructMap();
         this.physicsEngine = new SimplePhysicsEngine(1);
-        this.staticObject = new ArrayList();
-        this.physicObject = new ArrayList();
+        this.staticObject = this.mapCreator.getStaticMapItems();
+        this.physicObject = this.mapCreator.getPhysicsMapItems();
 
-        Physics player = new Player(new Location(40, 200), 100);
-        this.physicObject.add(player);
+        
 
-        Static block = new Block(new Location(40, 250), 30, 150);
-        this.staticObject.add(block);
-        Static block2 = new Block(new Location(40, 50), 30, 250);
-        this.staticObject.add(block2);
-
-        initBoard(player);
+        initBoard(this.mapCreator.getMainPLayer());
     }
 
     private void initBoard(Physics player) {
@@ -94,9 +91,9 @@ public class Board extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+
         tryMovements();
-        
+
         this.physicsEngine.applyMovements(physicObject, staticObject);
         this.physicsEngine.applyGravity(physicObject, staticObject);
         repaint();

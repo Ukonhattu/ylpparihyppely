@@ -7,6 +7,8 @@ package ylpparihyppely.ui;
 
 import java.util.List;
 import ylpparihyppely.gameobjects.Physics;
+import ylpparihyppely.gameobjects.Player;
+import ylpparihyppely.gameobjects.Static;
 
 /**
  *
@@ -16,4 +18,7 @@ public interface MapCreator {
     
     
     List<Physics> getPhysicsMapItems();
+    List<Static> getStaticMapItems();
+    Player getMainPLayer();
+    void constructMap();
 }

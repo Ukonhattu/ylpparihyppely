@@ -16,15 +16,24 @@ public class Player extends Pawn {
     Inventory inventory;
     String name;
     HitboxMaker hitboxMaker;
+    private List<Location> hitbox;
 
     public Player(Location location, int health) {
         super(location, health);
         this.hitboxMaker = new BoxHitboxMaker(this, 40, 40);
+        this.hitbox = this.hitboxMaker.makeHitbox();
 
     }
 
+    @Override
     public List<Location> getHitbox() {
-        return this.hitboxMaker.makeHitbox();
+        return this.hitbox;
+    }
+
+    @Override
+    public void updateHitbox() {
+        this.hitbox = this.hitboxMaker.makeHitbox();
+
     }
 
     @Override
@@ -34,9 +43,5 @@ public class Player extends Pawn {
     @Override
     public void onHit(Physics otherObject) {
     }
-
-
-
-
 
 }

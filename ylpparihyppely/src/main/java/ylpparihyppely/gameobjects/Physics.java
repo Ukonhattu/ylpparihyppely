@@ -31,6 +31,8 @@ public interface Physics extends Hitbox {
     Location getLocation();
 
     void tryMove();
+    
+    void updateHitbox();
 
 
 

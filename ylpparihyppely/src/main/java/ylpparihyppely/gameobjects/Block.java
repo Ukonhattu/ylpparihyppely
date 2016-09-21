@@ -16,6 +16,7 @@ public class Block extends GameObject implements Static {
     private int heigth;
     private int width;
     private HitboxMaker hitboxMaker;
+    private List<Location> hitbox;
 
     public int getHeigth() {
         return heigth;
@@ -30,6 +31,7 @@ public class Block extends GameObject implements Static {
         this.heigth = heigth;
         this.width = width;
         this.hitboxMaker = new BoxHitboxMaker(this, this.width, this.heigth);
+        this.hitbox = this.hitboxMaker.makeHitbox();
     }
 
     @Override
@@ -38,7 +40,7 @@ public class Block extends GameObject implements Static {
 
     @Override
     public List<Location> getHitbox() {
-        return this.hitboxMaker.makeHitbox();
+        return this.hitbox;
     }
 
     @Override
