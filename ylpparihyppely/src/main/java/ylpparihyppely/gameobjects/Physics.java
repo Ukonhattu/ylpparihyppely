@@ -32,7 +32,6 @@ public interface Physics extends Hitbox {
 
     void tryMove();
     
-    void updateHitbox();
 
 
 

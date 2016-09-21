@@ -27,14 +27,10 @@ public class Player extends Pawn {
 
     @Override
     public List<Location> getHitbox() {
-        return this.hitbox;
+        return this.hitboxMaker.makeHitbox();
     }
 
-    @Override
-    public void updateHitbox() {
-        this.hitbox = this.hitboxMaker.makeHitbox();
 
-    }
 
     @Override
     public void onHit(Static otherObject) {

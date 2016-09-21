@@ -44,7 +44,7 @@ public class SimplePhysicsEngine implements PhysicsEngine {
             if (!collidedPhysics && !collidedStatic) {
 
                 o.moveTo(o.whereYouWannaMove());
-                o.updateHitbox();
+
             } else {
                 o.moveTo(o.getLocation());
             }
