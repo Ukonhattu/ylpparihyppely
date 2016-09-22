@@ -56,7 +56,7 @@ abstract class Pawn extends PhysicsObject {
 
         if (this.isOnGround()) {
             this.isJumping = true;
-            this.jumpTime = 60;
+            this.jumpTime = 100;
 
         }
     }

@@ -24,7 +24,7 @@ public class Application extends JFrame {
 
         add(new Board());
 
-        setSize(600, 400);
+        setSize(1280, 720);
 
         setTitle("Application");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
