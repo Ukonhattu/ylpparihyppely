@@ -29,8 +29,11 @@ public class BoxHitboxMaker implements HitboxMaker {
         Location location = object.getHitboxLocation();
         List<Location> hitbox = new ArrayList();
         for (int i = location.getY(); i < location.getY() + heigth; i++) {
+            
             for (int j = location.getX(); j < location.getX() + width; j++) {
-                hitbox.add(new Location(j, i));
+                if (j == location.getX() || j == location.getX() + width-1 || i == location.getY() ||i == location.getY() + heigth-1) {
+                    hitbox.add(new Location(j, i));
+                }
             }
         }
 

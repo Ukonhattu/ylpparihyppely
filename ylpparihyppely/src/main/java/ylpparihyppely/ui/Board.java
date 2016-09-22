@@ -16,6 +16,8 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPanel;
@@ -41,15 +43,14 @@ public class Board extends JPanel implements ActionListener {
     private MapCreator mapCreator;
 
     public Board() {
-        
-        File map = new File("/home/daniel/ylpparihyppely/ylpparihyppely/src/main/java/ylpparihyppely/ui/firstMap.txt");
+
+        File map = new File("maps/firstMap.txt");
+
         this.mapCreator = new MapCreatorFile(map);
         this.mapCreator.constructMap();
         this.physicsEngine = new SimplePhysicsEngine(1);
         this.staticObject = this.mapCreator.getStaticMapItems();
         this.physicObject = this.mapCreator.getPhysicsMapItems();
-
-        
 
         initBoard(this.mapCreator.getMainPLayer());
     }
