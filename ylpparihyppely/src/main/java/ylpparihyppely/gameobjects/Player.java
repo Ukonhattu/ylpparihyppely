@@ -20,7 +20,7 @@ public class Player extends Pawn {
 
     public Player(Location location, int health) {
         super(location, health);
-        this.hitboxMaker = new BoxHitboxMaker(this, 40, 40);
+        this.hitboxMaker = new BoxHitboxMaker(this, 15, 30);
         this.hitbox = this.hitboxMaker.makeHitbox();
 
     }

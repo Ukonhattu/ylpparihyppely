@@ -36,6 +36,7 @@ public class Board extends JPanel implements ActionListener {
     private Timer timer;
 
     private final int delay = 10;
+    private final int gravity = 2;
 
     private PhysicsEngine physicsEngine;
     private List<Static> staticObject;
@@ -48,9 +49,10 @@ public class Board extends JPanel implements ActionListener {
 
         this.mapCreator = new MapCreatorFile(map);
         this.mapCreator.constructMap();
-        this.physicsEngine = new SimplePhysicsEngine(1);
+        this.physicsEngine = new SimplePhysicsEngine(gravity);
         this.staticObject = this.mapCreator.getStaticMapItems();
         this.physicObject = this.mapCreator.getPhysicsMapItems();
+        this.mapCreator.getMainPLayer().setGravity(gravity);
 
         initBoard(this.mapCreator.getMainPLayer());
     }
@@ -78,11 +80,12 @@ public class Board extends JPanel implements ActionListener {
 
         Graphics2D g2d = (Graphics2D) g;
 
-        g2d.setColor(Color.red);
+        g2d.setColor(Color.GREEN);
         for (Physics p : this.physicObject) {
             Location l = p.getLocation();
-            g2d.fillRect(l.getX(), l.getY(), 40, 40);
+            g2d.fillRect(l.getX(), l.getY(), 15, 30);
         }
+        g2d.setColor(Color.RED);
         for (Static s : this.staticObject) {
             Location l = s.getLocation();
             g2d.fillRect(l.getX(), l.getY(), s.getWidth(), s.getHeigth());
