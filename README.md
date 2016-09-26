@@ -13,5 +13,5 @@ Pieni tasohyppelypeli rakennettu kokonaan ilman apukirjastoja.
 Controls: A,D,Space
 
 #Huomioita
-**Hitbox ja Physics interface**
+**Hitbox ja Physics interface**\n
 Objektilla on aina hitbox, jonka takia jopa Physics perii perii hitboxin. Physics taas on rajapinta, joka tuo GameObjektin toteuttaville luokille fysiikkaan tarvittavat ominaisuudet. Eli hitbox määrittää kaikkia, physics tuo lisää ominaisuuksia.
