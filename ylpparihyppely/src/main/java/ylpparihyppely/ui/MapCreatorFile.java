@@ -50,30 +50,31 @@ public class MapCreatorFile implements MapCreator {
             System.out.println("Not found!");
         }
     }
-    
+
+    @Override
     public void constructMap() {
         int x = 0;
         int y = 0;
         for (String row : this.rows) {
             for (char c : row.toCharArray()) {
-                addToMap(c,x*this.size,y*this.size);
+                addToMap(c, x * this.size, y * this.size);
                 x++;
             }
             x = 0;
             y++;
         }
-        
+
     }
-    
+
     private void addToMap(char c, int x, int y) {
         if (c == '#') {
-            this.staticObject.add(new Block(new Location(x,y), size, size));
+            this.staticObject.add(new Block(new Location(x, y), size, size));
         }
         if (c == 'P') {
-            Player player = new Player(new Location(x,y), 100);
+            Player player = new Player(new Location(x, y), 100);
             this.physicObject.add(player);
             this.mainPlayer = player;
-            
+
         }
     }
 

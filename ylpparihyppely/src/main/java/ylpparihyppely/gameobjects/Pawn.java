@@ -35,6 +35,7 @@ abstract class Pawn extends PhysicsObject {
     public void tryMove() {
         move();
     }
+
     public void setGravity(int gravity) {
         this.gravity = gravity;
     }
@@ -48,32 +49,27 @@ abstract class Pawn extends PhysicsObject {
         if (this.isJumping || this.jumpTime > 0) {
             this.jumpTime--;
 
-            if (this.jumpTime > this.jumpHeigth/2/gravity) {
-                newLocation = new Location(newLocation.getX(), newLocation.getY() - gravity*3);
+            if (this.jumpTime > this.jumpHeigth / 2 / gravity) {
+                newLocation = new Location(newLocation.getX(), newLocation.getY() - gravity * 3);
 
             } else if (this.jumpTime > 0) {
-                newLocation = new Location(newLocation.getX(), newLocation.getY() - gravity*2);
-            }
-            else {
+                newLocation = new Location(newLocation.getX(), newLocation.getY() - gravity * 2);
+            } else {
                 stopJump();
             }
         }
         this.wantedLocation = newLocation;
-        
+
     }
 
     public void jump() {
 
         if (this.isOnGround()) {
             this.isJumping = true;
-            this.jumpTime = this.jumpHeigth/gravity;
+            this.jumpTime = this.jumpHeigth / gravity;
 
         }
     }
-
-
-    
-
 
     public void stopJump() {
         this.isJumping = false;
@@ -82,8 +78,6 @@ abstract class Pawn extends PhysicsObject {
     public void setDx(int dx) {
         this.dx = dx;
     }
-
-
 
     public void setDy(int dy) {
         this.dy = dy;
@@ -97,7 +91,5 @@ abstract class Pawn extends PhysicsObject {
     public boolean isMoving() {
         return !(dy == 0 && dx == 0);
     }
-
-
 
 }
