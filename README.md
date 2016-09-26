@@ -6,7 +6,7 @@ Pieni tasohyppelypeli rakennettu kokonaan ilman apukirjastoja.
 #Dokumentaatio
 [Aiheen kuvaus](dokumentaatio/aiheJaRakenne.md)
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
-[Checkstyle](dokumentaatio/site/)
+[Checkstyle](https://htmlpreview.github.io/?https://github.com/Ukonhattu/ylpparihyppely/blob/master/dokumentaatio/site/checkstyle.html)
 [Pit](dokumentaatio/pit)
 
 #Ohjeita
