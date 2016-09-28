@@ -13,3 +13,4 @@ Päivä | Tunnit | Kuvaus
 19.9.2016 | 2h | Siistitty koodia ja saatu SimplePhysicEngine toimimaan
 21.9.2016 | 5h | Luotu luokka jolla luetaan karttoja tiedostosta. Valitettavasti tehtyäni kartan huomasin suurin suorituskykyongelman. Hit detection vie niin pirusti laskentatehoa et peli lagaa. Täytynee kirjoittaa sekin uudestaan eri tavalla.
 22.9.2016 | 0.5h | Korjattu suorituskykykä ja siistitty tiedostorakenne (ylpparihyppely/maps luotu)
+20.9.2016 | 2h? | Testejä, siistimistä
