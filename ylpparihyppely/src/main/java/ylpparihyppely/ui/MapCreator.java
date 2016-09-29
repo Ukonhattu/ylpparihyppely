@@ -20,6 +20,5 @@ public interface MapCreator {
     List<Physics> getPhysicsMapItems();
     List<Static> getStaticMapItems();
     Player getMainPLayer();
-    void constructMap();
     List<Drawable> getDrawables();
 }

@@ -29,6 +29,11 @@ abstract class PhysicsObject extends GameObject implements Physics {
         this.gravityScale = 1;
     }
 
+    /**
+     * Applies gravity to object once. Actually is tries to move object one
+     * down.
+     * @param power The gravitation power, how fast we are going down.
+     */
     @Override
     public void applyGravity(int power) {
         this.oldLocation = this.getLocation();
@@ -36,17 +41,27 @@ abstract class PhysicsObject extends GameObject implements Physics {
         Location newLocation = new Location(location.getX(), location.getY() + (power * this.gravityScale));
         this.wantedLocation = newLocation;
     }
-    
+    /**
+     * Cancels applied gravity. Used when gravity tries to make move that is not
+     * allowed.
+     */
     @Override
     public void deGravity() {
         this.wantedLocation = this.oldLocation;
     }
-
+    /**
+     * Returns the location where object is heading to go on next update.
+     * @return 
+     */
     @Override
     public Location whereYouWannaMove() {
         return wantedLocation;
     }
 
+    /**
+     * Returns location of hitbox if object were on wantedLocation.
+     * @return 
+     */
     @Override
     public Location getHitboxLocation() {
         return wantedLocation;
@@ -57,11 +72,20 @@ abstract class PhysicsObject extends GameObject implements Physics {
         this.wantedLocation = location;
     }
 
+    /**
+     * Returns if object is moving on y-axis.
+     * @return True if object is moving on y-axis.
+     */
     @Override
     public boolean isOnAir() {
         return this.onAir;
     }
 
+    /**
+     * Moves object on specific  location. Does not care about hitboxes or
+     * anything.
+     * @param location 
+     */
     @Override
     public void moveTo(Location location) {
         if (this.getLocation().getY() != location.getY()) {
@@ -72,6 +96,10 @@ abstract class PhysicsObject extends GameObject implements Physics {
         this.setLocation(location);
     }
     
+    /**
+     * Returns if object is not moving on y-axis.
+     * @return True if not moving on y-axis.
+     */
     @Override
     public boolean isOnGround() {
         return !this.onAir;

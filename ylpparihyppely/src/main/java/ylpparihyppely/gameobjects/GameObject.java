@@ -21,6 +21,10 @@ public abstract class GameObject {
         return location;
     }
     
+    /**
+     * Return the location of imaginary hitbox for testing next positions hits.
+     * @return 
+     */
     abstract Location getHitboxLocation();
 
 

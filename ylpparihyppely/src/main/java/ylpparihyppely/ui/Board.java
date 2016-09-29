@@ -43,7 +43,6 @@ public class Board extends JPanel implements ActionListener {
         File map = new File("maps/firstMap.txt");
 
         this.mapCreator = new MapCreatorFile(map);
-        this.mapCreator.constructMap();
         this.physicsEngine = new SimplePhysicsEngine(gravity);
         this.staticObject = this.mapCreator.getStaticMapItems();
         this.physicObject = this.mapCreator.getPhysicsMapItems();

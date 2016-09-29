@@ -39,7 +39,11 @@ abstract class Pawn extends PhysicsObject {
     public void setGravity(int gravity) {
         this.gravity = gravity;
     }
-
+        
+   /**
+    * Sets the location where pawn would want to move. Does not actually move
+    * anything.
+    */
     public void move() {
         Location location = this.getLocation();
         if (!location.equals(this.wantedLocation)) {
@@ -61,7 +65,9 @@ abstract class Pawn extends PhysicsObject {
         this.wantedLocation = newLocation;
 
     }
-
+    /**
+     * Sets the jump variables. Actually jumping is happening in move().
+     */
     public void jump() {
 
         if (this.isOnGround()) {
@@ -86,7 +92,10 @@ abstract class Pawn extends PhysicsObject {
     public int getSpeed() {
         return this.speed;
     }
-
+    /**
+     * Returns whether pawn is moving or not.
+     * @return True if pawn is on move.
+     */
     @Override
     public boolean isMoving() {
         return !(dy == 0 && dx == 0);

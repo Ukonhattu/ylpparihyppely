@@ -14,7 +14,7 @@ import ylpparihyppely.gameobjects.Player;
  *
  * @author daxda
  */
-public class DrawablePlayer implements Drawable{
+public class DrawablePlayer implements Drawable {
 
     private final Player player;
     private Color color;
@@ -30,5 +30,5 @@ public class DrawablePlayer implements Drawable{
         Location l = player.getLocation();
         g2d.fillRect(l.getX(), l.getY(), 15, 30);
     }
-    
+
 }

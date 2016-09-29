@@ -39,6 +39,7 @@ public class MapCreatorFile implements MapCreator {
         this.staticObject = new ArrayList();
         this.drawables = new ArrayList();
         readFile(mapFile);
+        constructMap();
 
     }
 
@@ -54,8 +55,12 @@ public class MapCreatorFile implements MapCreator {
         }
     }
 
-    @Override
-    public void constructMap() {
+    /**
+     * Constructs map by adding every object to correct list. Must be used 
+     * before getting any items from map.
+     */
+
+    private void constructMap() {
         int x = 0;
         int y = 0;
         for (String row : this.rows) {

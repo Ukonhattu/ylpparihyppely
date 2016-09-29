@@ -23,6 +23,12 @@ public class SimplePhysicsEngine implements PhysicsEngine {
         this.collisionHandler = new CollisionHandler();
     }
 
+    /**
+     * Applies gravity on this update to every object given.Checks if gravity
+     * movement is allowed and cancels it if not.
+     * @param physicsObject
+     * @param staticObject 
+     */
     @Override
     public void applyGravity(List<Physics> physicsObject, List<Static> staticObject) {
         for (Physics o : physicsObject) {
@@ -34,7 +40,14 @@ public class SimplePhysicsEngine implements PhysicsEngine {
             }
         }
     }
-
+    
+    /**
+     * Applies movements to physics objects. Moves each object to location it
+     * wants to move if possible (not colliding). If not possible "moves" to 
+     * location where it is already.
+     * @param physicsObject
+     * @param staticObject 
+     */
     @Override
     public void applyMovements(List<Physics> physicsObject, List<Static> staticObject) {
 

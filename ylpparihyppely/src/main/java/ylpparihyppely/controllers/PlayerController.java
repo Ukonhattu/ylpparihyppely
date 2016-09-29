@@ -16,7 +16,7 @@ import ylpparihyppely.gameobjects.Player;
  */
 public class PlayerController implements Controller, KeyListener {
 
-    private Player player;
+    private final Player player;
 
     public PlayerController(Physics player) {
         this.player = (Player) player;
@@ -36,8 +36,6 @@ public class PlayerController implements Controller, KeyListener {
             player.setDx(-player.getSpeed());
         }
 
-
-
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             player.jump();
         }
@@ -49,7 +47,6 @@ public class PlayerController implements Controller, KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_A) {
             player.setDx(0);
         }
-
 
     }
 
