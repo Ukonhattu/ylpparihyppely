@@ -21,4 +21,5 @@ public interface MapCreator {
     List<Static> getStaticMapItems();
     Player getMainPLayer();
     void constructMap();
+    List<Drawable> getDrawables();
 }

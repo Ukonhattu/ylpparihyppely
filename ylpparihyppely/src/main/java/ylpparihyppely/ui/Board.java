@@ -16,17 +16,11 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-import ylpparihyppely.gameobjects.Block;
-import ylpparihyppely.gameobjects.Location;
 import ylpparihyppely.gameobjects.Physics;
-import ylpparihyppely.gameobjects.Player;
-import ylpparihyppely.gameobjects.PlayerController;
+import ylpparihyppely.controllers.PlayerController;
 import ylpparihyppely.gameobjects.Static;
 import ylpparihyppely.physicsengine.PhysicsEngine;
 import ylpparihyppely.physicsengine.SimplePhysicsEngine;
@@ -41,6 +35,7 @@ public class Board extends JPanel implements ActionListener {
     private PhysicsEngine physicsEngine;
     private List<Static> staticObject;
     private List<Physics> physicObject;
+    private List<Drawable> drawables;
     private MapCreator mapCreator;
 
     public Board() {
@@ -53,6 +48,7 @@ public class Board extends JPanel implements ActionListener {
         this.staticObject = this.mapCreator.getStaticMapItems();
         this.physicObject = this.mapCreator.getPhysicsMapItems();
         this.mapCreator.getMainPLayer().setGravity(gravity);
+        this.drawables = this.mapCreator.getDrawables();
 
         initBoard(this.mapCreator.getMainPLayer());
     }
@@ -80,15 +76,8 @@ public class Board extends JPanel implements ActionListener {
 
         Graphics2D g2d = (Graphics2D) g;
 
-        g2d.setColor(Color.GREEN);
-        for (Physics p : this.physicObject) {
-            Location l = p.getLocation();
-            g2d.fillRect(l.getX(), l.getY(), 15, 30);
-        }
-        g2d.setColor(Color.RED);
-        for (Static s : this.staticObject) {
-            Location l = s.getLocation();
-            g2d.fillRect(l.getX(), l.getY(), s.getWidth(), s.getHeigth());
+        for (Drawable d : this.drawables) {
+            d.draw(g2d);
         }
 
     }

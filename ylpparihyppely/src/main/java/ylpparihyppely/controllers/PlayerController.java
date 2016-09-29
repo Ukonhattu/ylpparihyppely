@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ylpparihyppely.gameobjects;
+package ylpparihyppely.controllers;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import ylpparihyppely.gameobjects.Physics;
+import ylpparihyppely.gameobjects.Player;
 
 /**
  *

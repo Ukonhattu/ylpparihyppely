@@ -5,6 +5,7 @@
  */
 package ylpparihyppely.ui;
 
+import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class MapCreatorFile implements MapCreator {
     private List<String> rows;
     private List<Physics> physicObject;
     private List<Static> staticObject;
+    private List<Drawable> drawables;
     private Player mainPlayer;
     private final int size;
 
@@ -35,6 +37,7 @@ public class MapCreatorFile implements MapCreator {
         this.rows = new ArrayList();
         this.physicObject = new ArrayList();
         this.staticObject = new ArrayList();
+        this.drawables = new ArrayList();
         readFile(mapFile);
 
     }
@@ -68,11 +71,14 @@ public class MapCreatorFile implements MapCreator {
 
     private void addToMap(char c, int x, int y) {
         if (c == '#') {
-            this.staticObject.add(new Block(new Location(x, y), size, size));
+            Block block = new Block(new Location(x, y), size, size);
+            this.staticObject.add(block);
+            this.drawables.add(new DrawableBlock(block, Color.RED));
         }
         if (c == 'P') {
             Player player = new Player(new Location(x, y), 100);
             this.physicObject.add(player);
+            this.drawables.add(new DrawablePlayer(player, Color.GREEN));
             this.mainPlayer = player;
 
         }
@@ -91,6 +97,11 @@ public class MapCreatorFile implements MapCreator {
     @Override
     public Player getMainPLayer() {
         return this.mainPlayer;
+    }
+
+    @Override
+    public List<Drawable> getDrawables() {
+        return this.drawables;
     }
 
 }
