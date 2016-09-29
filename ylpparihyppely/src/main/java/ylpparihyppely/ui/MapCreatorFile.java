@@ -1,7 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+ * Copyright (C) 2016 daxda
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 package ylpparihyppely.ui;
 
@@ -20,7 +32,7 @@ import ylpparihyppely.gameobjects.Player;
 import ylpparihyppely.gameobjects.Static;
 
 /**
- *
+ * Create Map from a text File.
  * @author daniel
  */
 public class MapCreatorFile implements MapCreator {
@@ -32,6 +44,10 @@ public class MapCreatorFile implements MapCreator {
     private Player mainPlayer;
     private final int size;
 
+    /**
+     *Construct.
+     * @param mapFile File(.txt)
+     */
     public MapCreatorFile(File mapFile) {
         size = 40;
         this.rows = new ArrayList();
@@ -89,21 +105,37 @@ public class MapCreatorFile implements MapCreator {
         }
     }
 
+    /**
+     *Get all physics items.
+     * @return list of physics
+     */
     @Override
     public List<Physics> getPhysicsMapItems() {
         return this.physicObject;
     }
 
+    /**
+     *Get all static items.
+     * @return list of static
+     */
     @Override
     public List<Static> getStaticMapItems() {
         return this.staticObject;
     }
 
+    /**
+     * Get the main player.
+     * @return Player
+     */
     @Override
     public Player getMainPLayer() {
         return this.mainPlayer;
     }
 
+    /**
+     * Get all Drawables.
+     * @return all Drawables
+     */
     @Override
     public List<Drawable> getDrawables() {
         return this.drawables;

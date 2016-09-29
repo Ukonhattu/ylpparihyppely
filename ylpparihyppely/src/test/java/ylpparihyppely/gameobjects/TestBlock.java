@@ -47,7 +47,7 @@ public class TestBlock {
 
     @Test
     public void testConstructorHeight() {
-        assertEquals(true, this.block.getHeigth() == 40);
+        assertEquals(true, this.block.getHeight() == 40);
     }
 
     @Test

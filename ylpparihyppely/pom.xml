@@ -54,4 +54,5 @@
             </plugin> 
         </plugins>
     </build>
+    <description>Small game</description>
 </project>
