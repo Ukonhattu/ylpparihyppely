@@ -60,6 +60,7 @@ public class CollisionHandler {
             }
             if (isColliding(collider.getHitbox(), p.getHitbox())) {
                 collider.onHit(p);
+                p.onHit(collider);
                 collided = true;
             }
         }
@@ -78,6 +79,7 @@ public class CollisionHandler {
         for (Static s : object) {
             if (isColliding(collider.getHitbox(), s.getHitbox())) {
                 collider.onHit(s);
+                s.onHit(collider);
                 collided = true;
             }
         }

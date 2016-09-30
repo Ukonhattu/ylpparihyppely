@@ -17,7 +17,6 @@
  */
 package ylpparihyppely.ui;
 
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -28,14 +27,18 @@ import java.io.File;
 import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+import ylpparihyppely.controllers.AIController;
 import ylpparihyppely.gameobjects.Physics;
 import ylpparihyppely.controllers.PlayerController;
+import ylpparihyppely.gameobjects.Finish;
+import ylpparihyppely.gameobjects.Player;
 import ylpparihyppely.gameobjects.Static;
 import ylpparihyppely.physicsengine.PhysicsEngine;
 import ylpparihyppely.physicsengine.SimplePhysicsEngine;
 
 /**
- *Board a.k.a the screen.
+ * Board a.k.a the screen.
+ *
  * @author daxda
  */
 public class Board extends JPanel implements ActionListener {
@@ -49,7 +52,10 @@ public class Board extends JPanel implements ActionListener {
     private List<Static> staticObject;
     private List<Physics> physicObject;
     private List<Drawable> drawables;
+    private List<AIController> aiControllers;
     private MapCreator mapCreator;
+    private Player mainPlayer;
+    private Finish mapFinish;
 
     /**
      * Make it.
@@ -64,8 +70,11 @@ public class Board extends JPanel implements ActionListener {
         this.physicObject = this.mapCreator.getPhysicsMapItems();
         this.mapCreator.getMainPLayer().setGravity(gravity);
         this.drawables = this.mapCreator.getDrawables();
+        this.aiControllers = this.mapCreator.getAIControllers();
+        this.mainPlayer = this.mapCreator.getMainPLayer();
+        this.mapFinish = this.mapCreator.getFinish();
 
-        initBoard(this.mapCreator.getMainPLayer());
+        initBoard(mainPlayer);
     }
 
     private void initBoard(Physics player) {
@@ -101,16 +110,30 @@ public class Board extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         tryMovements();
-
+        controlAI();
         this.physicsEngine.applyMovements(physicObject, staticObject);
         this.physicsEngine.applyGravity(physicObject, staticObject);
         repaint();
+        if (mainPlayer.getHealth() <= 0) {
+            System.out.println("KUOLIT :D");
+            System.exit(0);  // Väliaikaisratkaisu :D
+        }
+        if (mapFinish.isPlayerInFinish()) {
+            System.out.println("VOITIT :D");
+            System.exit(0); // Väliaikaisratkaisu :D
+        }
 
     }
 
     private void tryMovements() {
         for (Physics p : this.physicObject) {
             p.tryMove();
+        }
+    }
+
+    private void controlAI() {
+        for (AIController aic : this.aiControllers) {
+            aic.Tick();
         }
     }
 

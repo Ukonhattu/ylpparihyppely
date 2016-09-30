@@ -18,6 +18,8 @@
 package ylpparihyppely.ui;
 
 import java.util.List;
+import ylpparihyppely.controllers.AIController;
+import ylpparihyppely.gameobjects.Finish;
 import ylpparihyppely.gameobjects.Physics;
 import ylpparihyppely.gameobjects.Player;
 import ylpparihyppely.gameobjects.Static;
@@ -51,4 +53,11 @@ public interface MapCreator {
      * @return all Drawables
      */
     List<Drawable> getDrawables();
+    /**
+     * Get all AIControllers on the map.
+     * @return list of AIControllers
+     */
+    List<AIController> getAIControllers();
+    
+    Finish getFinish();
 }

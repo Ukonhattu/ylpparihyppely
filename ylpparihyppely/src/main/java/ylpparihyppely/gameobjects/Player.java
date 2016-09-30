@@ -65,6 +65,10 @@ public class Player extends Pawn {
      */
     @Override
     public void onHit(Physics otherObject) {
+        if (otherObject.getClass() == DeadlyBlock.class) {
+            this.health = 0;
+            
+        }
     }
 
 }

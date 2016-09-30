@@ -21,6 +21,6 @@ package ylpparihyppely.controllers;
  *
  * @author daniel
  */
-interface Controller {
+public interface Controller {
     
 }

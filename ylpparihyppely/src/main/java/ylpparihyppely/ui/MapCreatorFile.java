@@ -23,13 +23,15 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import ylpparihyppely.gameobjects.Block;
+import ylpparihyppely.gameobjects.DeadlyBlock;
 import ylpparihyppely.gameobjects.Location;
 import ylpparihyppely.gameobjects.Physics;
 import ylpparihyppely.gameobjects.Player;
 import ylpparihyppely.gameobjects.Static;
+import ylpparihyppely.controllers.AIController;
+import ylpparihyppely.controllers.DeadlyBlockController;
+import ylpparihyppely.gameobjects.Finish;
 
 /**
  * Create Map from a text File.
@@ -41,7 +43,9 @@ public class MapCreatorFile implements MapCreator {
     private List<Physics> physicObject;
     private List<Static> staticObject;
     private List<Drawable> drawables;
+    private List<AIController> aiControllers;
     private Player mainPlayer;
+    private Finish finish;
     private final int size;
 
     /**
@@ -54,9 +58,14 @@ public class MapCreatorFile implements MapCreator {
         this.physicObject = new ArrayList();
         this.staticObject = new ArrayList();
         this.drawables = new ArrayList();
+        this.aiControllers = new ArrayList();
         readFile(mapFile);
         constructMap();
 
+    }
+
+    public List<AIController> getAIControllers() {
+        return aiControllers;
     }
 
     private void readFile(File mapFile) {
@@ -103,6 +112,19 @@ public class MapCreatorFile implements MapCreator {
             this.mainPlayer = player;
 
         }
+        if (c == 'D') {
+            DeadlyBlock dBlock = new DeadlyBlock(new Location(x,y),100, size, size);
+            this.physicObject.add(dBlock);
+            this.drawables.add(new DrawableDeadlyBlock(dBlock, Color.ORANGE));
+            this.aiControllers.add(new DeadlyBlockController(dBlock, 2, 400));
+        }
+        
+        if (c == 'F') {
+            Finish newFinish = new Finish(new Location(x,y), size, size);
+            this.staticObject.add(newFinish);
+            this.drawables.add(new DrawableFinish(newFinish, Color.WHITE));
+            this.finish = newFinish;
+        }
     }
 
     /**
@@ -139,6 +161,11 @@ public class MapCreatorFile implements MapCreator {
     @Override
     public List<Drawable> getDrawables() {
         return this.drawables;
+    }
+
+    @Override
+    public Finish getFinish() {
+        return this.finish;
     }
 
 }
