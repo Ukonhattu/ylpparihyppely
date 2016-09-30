@@ -17,3 +17,4 @@ Päivä | Tunnit | Kuvaus
 ??????| ?? | ???
 26.8.2016 | 2h | siistimistä
 29.9 | 4h | siistimistä, javadockia, tehty uusia luokkia piirtämiseen.
+30.9 | 3h | Lisätty "partioiva" vihollinen (oranssi laatikko) sekä maali (valkoinen laatikko). Voitolle ja häviölle ei ole vielä kunnollista systeemiä, joten väliaikaisratkaisu System.exit(0);
