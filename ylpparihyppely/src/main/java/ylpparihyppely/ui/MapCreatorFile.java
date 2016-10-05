@@ -32,6 +32,7 @@ import ylpparihyppely.gameobjects.Static;
 import ylpparihyppely.controllers.AIController;
 import ylpparihyppely.controllers.DeadlyBlockController;
 import ylpparihyppely.gameobjects.Finish;
+import ylpparihyppely.gameobjects.Note;
 
 /**
  * Create Map from a text File.
@@ -125,6 +126,12 @@ public class MapCreatorFile implements MapCreator {
             this.staticObject.add(newFinish);
             this.drawables.add(new DrawableFinish(newFinish, Color.WHITE));
             this.finish = newFinish;
+        }
+        
+        if (c == 'N') {
+            Note note = new Note(new Location(x,y+size/2), "Note", size/2,size/2);
+            this.staticObject.add(note);
+            this.drawables.add(new DrawableNote(note, Color.MAGENTA));
         }
     }
 

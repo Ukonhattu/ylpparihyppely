@@ -26,14 +26,18 @@ import java.util.List;
 public class Note extends Item {
 
     String text;
+    HitboxMaker hitboxMaker;
 
     /**
      *Construct.
      * @param location location
      * @param name name
+     * @param width width
+     * @param height height
      */
-    public Note(Location location, String name) {
-        super(location, name);
+    public Note(Location location, String name, int width, int height) {
+        super(location, name, width, height);
+        this.hitboxMaker = new BoxHitboxMaker(this, width, height);
     }
 
     /**
@@ -58,7 +62,7 @@ public class Note extends Item {
      */
     @Override
     public List<Location> getHitbox() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.hitboxMaker.makeHitbox();
     }
 
     /**
@@ -67,7 +71,6 @@ public class Note extends Item {
      */
     @Override
     public void onHit(Static otherObject) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -76,30 +79,13 @@ public class Note extends Item {
      */
     @Override
     public void onHit(Physics otherObject) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    /**
-     * Get height.
-     * @return height
-     */
-    @Override
-    public int getHeight() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
-    /**
-     * Get width.
-     * @return width
-     */
-    @Override
-    public int getWidth() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     Location getHitboxLocation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.getLocation();
     }
 
 

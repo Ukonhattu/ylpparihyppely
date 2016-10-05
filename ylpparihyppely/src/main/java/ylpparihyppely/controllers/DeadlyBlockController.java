@@ -46,7 +46,7 @@ public class DeadlyBlockController implements AIController {
     
 
     @Override
-    public void Tick() {
+    public void tick() {
         if (direction) {
             if (timer >= area/speed) {
                 direction = false;

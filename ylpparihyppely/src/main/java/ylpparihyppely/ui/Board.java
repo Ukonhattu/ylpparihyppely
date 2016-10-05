@@ -133,7 +133,7 @@ public class Board extends JPanel implements ActionListener {
 
     private void controlAI() {
         for (AIController aic : this.aiControllers) {
-            aic.Tick();
+            aic.tick();
         }
     }
 

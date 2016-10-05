@@ -23,10 +23,25 @@ package ylpparihyppely.gameobjects;
  */
 abstract class Item extends GameObject implements CollectibleGameObject, Static {
 
-    public String name;
-    public Item(Location location, String name) {
+    private String name;
+    private int width;
+    private int height;
+    
+    public Item(Location location, String name, int width, int height) {
         super(location);
         this.name = name;
+        this.width = width;
+        this.height = height;
     }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+    
+    
 
 }

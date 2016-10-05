@@ -15,15 +15,30 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package ylpparihyppely.controllers;
+package ylpparihyppely.ui;
+
+import java.awt.Color;
+import java.awt.Graphics2D;
+import ylpparihyppely.gameobjects.Location;
+import ylpparihyppely.gameobjects.Note;
 
 /**
- * Controller interface for AI controlling.
+ *
  * @author daxda
  */
-public interface AIController extends Controller{
-    /**
-     * For every call.
-     */
-    void tick();
+public class DrawableNote implements Drawable{
+        private final Note note;
+
+    public DrawableNote(Note note, Color color) {
+        this.note = note;
+        this.color = color;
+    }
+    private Color color;
+
+    @Override
+    public void draw(Graphics2D g2d) {
+        g2d.setColor(color);
+        Location l = note.getLocation();
+        g2d.fillRect(l.getX(), l.getY(), note.getWidth(), note.getHeight());
+    }
 }
