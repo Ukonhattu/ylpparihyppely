@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 27,
+      <title>File: 34,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -117,6 +117,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#ylpparihyppely.gameobjects.Physics.java">ylpparihyppely/gameobjects/Physics.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#ylpparihyppely.ui.DrawableDeadlyBlock.java">ylpparihyppely/ui/DrawableDeadlyBlock.java</a>
                 </td>
                 <td>
                   0
@@ -228,6 +242,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#ylpparihyppely.ui.DrawableNote.java">ylpparihyppely/ui/DrawableNote.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#ylpparihyppely.gameobjects.Item.java">ylpparihyppely/gameobjects/Item.java</a>
                 </td>
                 <td>
@@ -243,6 +271,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#ylpparihyppely.ui.DrawablePlayer.java">ylpparihyppely/ui/DrawablePlayer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#ylpparihyppely.controllers.AIController.java">ylpparihyppely/controllers/AIController.java</a>
                 </td>
                 <td>
                   0
@@ -285,6 +327,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#ylpparihyppely.gameobjects.Location.java">ylpparihyppely/gameobjects/Location.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#ylpparihyppely.gameobjects.Finish.java">ylpparihyppely/gameobjects/Finish.java</a>
                 </td>
                 <td>
                   0
@@ -382,6 +438,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#ylpparihyppely.ui.DrawableFinish.java">ylpparihyppely/ui/DrawableFinish.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#ylpparihyppely.gameobjects.Inventory.java">ylpparihyppely/gameobjects/Inventory.java</a>
                 </td>
                 <td>
@@ -396,7 +466,35 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#ylpparihyppely.gameobjects.DeadlyBlock.java">ylpparihyppely/gameobjects/DeadlyBlock.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#ylpparihyppely.physicsengine.SimplePhysicsEngine.java">ylpparihyppely/physicsengine/SimplePhysicsEngine.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#ylpparihyppely.controllers.DeadlyBlockController.java">ylpparihyppely/controllers/DeadlyBlockController.java</a>
                 </td>
                 <td>
                   0
