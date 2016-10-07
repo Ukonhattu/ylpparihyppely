@@ -36,6 +36,7 @@ import ylpparihyppely.gameobjects.Note;
 
 /**
  * Create Map from a text File.
+ *
  * @author daniel
  */
 public class MapCreatorFile implements MapCreator {
@@ -47,10 +48,12 @@ public class MapCreatorFile implements MapCreator {
     private List<AIController> aiControllers;
     private Player mainPlayer;
     private Finish finish;
+    private int collectibleQuanity;
     private final int size;
 
     /**
-     *Construct.
+     * Construct.
+     *
      * @param mapFile File(.txt)
      */
     public MapCreatorFile(File mapFile) {
@@ -60,6 +63,7 @@ public class MapCreatorFile implements MapCreator {
         this.staticObject = new ArrayList();
         this.drawables = new ArrayList();
         this.aiControllers = new ArrayList();
+        this.collectibleQuanity = 0;
         readFile(mapFile);
         constructMap();
 
@@ -83,10 +87,9 @@ public class MapCreatorFile implements MapCreator {
     }
 
     /**
-     * Constructs map by adding every object to correct list. Must be used 
+     * Constructs map by adding every object to correct list. Must be used
      * before getting any items from map.
      */
-
     private void constructMap() {
         int x = 0;
         int y = 0;
@@ -115,28 +118,30 @@ public class MapCreatorFile implements MapCreator {
 
         }
         if (c == 'D') {
-            DeadlyBlock dBlock = new DeadlyBlock(new Location(x,y),100, size, size);
+            DeadlyBlock dBlock = new DeadlyBlock(new Location(x, y), 100, size, size);
             this.physicObject.add(dBlock);
             this.drawables.add(new DrawableDeadlyBlock(dBlock, Color.ORANGE));
             this.aiControllers.add(new DeadlyBlockController(dBlock, 2, 400));
         }
-        
+
         if (c == 'F') {
-            Finish newFinish = new Finish(new Location(x,y), size, size);
+            Finish newFinish = new Finish(new Location(x, y), size, size);
             this.staticObject.add(newFinish);
             this.drawables.add(new DrawableFinish(newFinish, Color.WHITE));
             this.finish = newFinish;
         }
-        
+
         if (c == 'N') {
-            Note note = new Note(new Location(x,y+size/2), "Note", size/2,size/2);
+            Note note = new Note(new Location(x, y + size / 2), "Note", size / 2, size / 2);
             this.staticObject.add(note);
             this.drawables.add(new DrawableNote(note, Color.MAGENTA));
+            this.collectibleQuanity++;
         }
     }
 
     /**
-     *Get all physics items.
+     * Get all physics items.
+     *
      * @return list of physics
      */
     @Override
@@ -145,7 +150,8 @@ public class MapCreatorFile implements MapCreator {
     }
 
     /**
-     *Get all static items.
+     * Get all static items.
+     *
      * @return list of static
      */
     @Override
@@ -155,6 +161,7 @@ public class MapCreatorFile implements MapCreator {
 
     /**
      * Get the main player.
+     *
      * @return Player
      */
     @Override
@@ -164,6 +171,7 @@ public class MapCreatorFile implements MapCreator {
 
     /**
      * Get all Drawables.
+     *
      * @return all Drawables
      */
     @Override
@@ -174,6 +182,11 @@ public class MapCreatorFile implements MapCreator {
     @Override
     public Finish getFinish() {
         return this.finish;
+    }
+
+    @Override
+    public int getCollectibleQuanity() {
+        return collectibleQuanity;
     }
 
 }

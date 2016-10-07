@@ -18,9 +18,10 @@
 package ylpparihyppely.controllers;
 
 /**
+ * Controller interface.
  *
  * @author daniel
  */
 public interface Controller {
-    
+
 }

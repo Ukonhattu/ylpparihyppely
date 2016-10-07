@@ -52,4 +52,9 @@ public class DrawablePlayer implements Drawable {
         g2d.fillRect(l.getX(), l.getY(), 15, 30);
     }
 
+    @Override
+    public boolean isHidden() {
+        return this.player.isHidden();
+    }
+
 }

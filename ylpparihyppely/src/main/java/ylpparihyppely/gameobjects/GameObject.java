@@ -24,6 +24,7 @@ package ylpparihyppely.gameobjects;
 public abstract class GameObject {
     
     private Location location;
+    protected boolean hidden;
 
     /**
      *Construct.
@@ -31,6 +32,7 @@ public abstract class GameObject {
      */
     public GameObject(Location location) {
         this.location = location;
+        this.hidden = false;
     }
 
     /**
@@ -54,6 +56,11 @@ public abstract class GameObject {
     public void setLocation(Location location) {
         this.location = location;
     }
+
+    public boolean isHidden() {
+        return hidden;
+    }
+    
     
     
 

@@ -21,18 +21,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *Inventory-system.
+ * Inventory-system.
+ *
  * @author daniel
  */
-class Inventory {
+public class Inventory {
 
     List<CollectibleGameObject> collectedObjects;
-
+/**
+ * Construct.
+ */
     public Inventory() {
         this.collectedObjects = new ArrayList<>();
     }
-
+/**
+ * Add item/other collectible to inventory.
+ * @param object 
+ */
     public void addCollectible(CollectibleGameObject object) {
+        this.collectedObjects.add(object);
+    }
+
+    public List<CollectibleGameObject> getInventory() {
+        return this.collectedObjects;
+    }
+
+    public int getInventorySize() {
+        return this.collectedObjects.size();
     }
 
 }

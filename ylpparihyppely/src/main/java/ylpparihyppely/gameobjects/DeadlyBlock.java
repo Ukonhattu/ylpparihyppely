@@ -21,16 +21,18 @@ import java.util.List;
 
 /**
  * This is enemy. It extends Pawn and has nothing to do with Class Block.
+ *
  * @author daxda
  */
 public class DeadlyBlock extends Pawn {
-    
+
     private final HitboxMaker hitboxMaker;
     private int width;
     private int height;
-    
+
     /**
      * Construct.
+     *
      * @param location location
      * @param health health
      * @param width width
@@ -40,7 +42,7 @@ public class DeadlyBlock extends Pawn {
         super(location, health);
         this.width = width;
         this.height = height;
-        this.hitboxMaker = new BoxHitboxMaker(this, width,height);
+        this.hitboxMaker = new BoxHitboxMaker(this, width, height);
     }
 
     public int getWidth() {
@@ -50,8 +52,6 @@ public class DeadlyBlock extends Pawn {
     public int getHeight() {
         return height;
     }
-    
-    
 
     @Override
     public List<Location> getHitbox() {
@@ -65,5 +65,5 @@ public class DeadlyBlock extends Pawn {
     @Override
     public void onHit(Physics otherObject) {
     }
-    
+
 }

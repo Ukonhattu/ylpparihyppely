@@ -26,38 +26,58 @@ import ylpparihyppely.gameobjects.Static;
 
 /**
  * Create maps in every way you want.
+ *
  * @author daniel
  */
 public interface MapCreator {
-    
+
     /**
-     *Get maps physics items.
+     * Get maps physics items.
+     *
      * @return list of physics
      */
     List<Physics> getPhysicsMapItems();
 
     /**
      * Get maps static items.
+     *
      * @return list of static
      */
     List<Static> getStaticMapItems();
 
     /**
      * Get the main player.
+     *
      * @return player
      */
     Player getMainPLayer();
 
     /**
      * Get all Drawables.
+     *
      * @return all Drawables
      */
     List<Drawable> getDrawables();
+
     /**
      * Get all AIControllers on the map.
+     *
      * @return list of AIControllers
      */
-    List<AIController> getAIControllers();
     
+    /**
+     * Get all AIControllers.
+     * @return list of AI controllers.
+     */
+    List<AIController> getAIControllers();
+    /**
+     * Get the destination block.
+     * @return Finish
+     */
     Finish getFinish();
+/**
+ * How many collectibles there are on a map.
+ * @return int
+ */
+    int getCollectibleQuanity();
 }

@@ -24,6 +24,7 @@ import ylpparihyppely.gameobjects.Location;
 
 /**
  * Block to be drawn.
+ *
  * @author daxda
  */
 public class DrawableBlock implements Drawable {
@@ -32,7 +33,8 @@ public class DrawableBlock implements Drawable {
     private Color color;
 
     /**
-     *Construct.
+     * Construct.
+     *
      * @param block Block
      * @param color Color.XXX
      */
@@ -42,7 +44,8 @@ public class DrawableBlock implements Drawable {
     }
 
     /**
-     *The actual drawing.
+     * The actual drawing.
+     *
      * @param g2d Graphics2D
      */
     @Override
@@ -50,5 +53,10 @@ public class DrawableBlock implements Drawable {
         g2d.setColor(color);
         Location l = block.getLocation();
         g2d.fillRect(l.getX(), l.getY(), block.getWidth(), block.getHeight());
+    }
+
+    @Override
+    public boolean isHidden() {
+        return this.block.isHidden();
     }
 }

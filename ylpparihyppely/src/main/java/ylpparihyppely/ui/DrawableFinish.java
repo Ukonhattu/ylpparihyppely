@@ -31,7 +31,11 @@ public class DrawableFinish implements Drawable {
 
     private final Finish finish;
     private Color color;
-
+/**
+ * Construct.
+ * @param finish Finish
+ * @param color Color.color
+ */
     public DrawableFinish(Finish finish, Color color) {
         this.finish = finish;
         this.color = color;
@@ -42,6 +46,11 @@ public class DrawableFinish implements Drawable {
         g2d.setColor(color);
         Location l = finish.getLocation();
         g2d.fillRect(l.getX(), l.getY(), finish.getWidth(), finish.getHeight());
+    }
+
+    @Override
+    public boolean isHidden() {
+        return this.finish.isHidden();
     }
 
 }

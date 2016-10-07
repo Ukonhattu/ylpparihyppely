@@ -39,6 +39,7 @@ public class Player extends Pawn {
         super(location, health);
         this.hitboxMaker = new BoxHitboxMaker(this, 15, 30);
         this.hitbox = this.hitboxMaker.makeHitbox();
+        this.inventory = new Inventory();
 
     }
 
@@ -69,6 +70,10 @@ public class Player extends Pawn {
             this.health = 0;
             
         }
+    }
+    
+    public Inventory getInventory() {
+        return this.inventory;
     }
 
 }

@@ -20,7 +20,8 @@ package ylpparihyppely.controllers;
 import ylpparihyppely.gameobjects.DeadlyBlock;
 
 /**
- *Controlling the DeadlyBlock.
+ * Controlling the DeadlyBlock.
+ *
  * @author daxda
  */
 public class DeadlyBlockController implements AIController {
@@ -30,25 +31,26 @@ public class DeadlyBlockController implements AIController {
     private boolean direction; //True = left, False = Right
     private int speed;
     private int area;
+
     /**
      * Construct.
+     *
      * @param deadlyBlock DeadlyBlock
      * @param speed speed
      * @param area patrolling area radius
      */
-    public DeadlyBlockController(DeadlyBlock deadlyBlock,int speed ,int area) {
+    public DeadlyBlockController(DeadlyBlock deadlyBlock, int speed, int area) {
         this.deadlyBlock = deadlyBlock;
         timer = 0;
         this.direction = true;
         this.speed = speed;
         this.area = area;
     }
-    
 
     @Override
     public void tick() {
         if (direction) {
-            if (timer >= area/speed) {
+            if (timer >= area / speed) {
                 direction = false;
                 deadlyBlock.setDx(-speed);
             }

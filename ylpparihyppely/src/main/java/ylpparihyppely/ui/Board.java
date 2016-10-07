@@ -56,6 +56,7 @@ public class Board extends JPanel implements ActionListener {
     private MapCreator mapCreator;
     private Player mainPlayer;
     private Finish mapFinish;
+    private int collectibleQuanity;
 
     /**
      * Make it.
@@ -73,6 +74,7 @@ public class Board extends JPanel implements ActionListener {
         this.aiControllers = this.mapCreator.getAIControllers();
         this.mainPlayer = this.mapCreator.getMainPLayer();
         this.mapFinish = this.mapCreator.getFinish();
+        this.collectibleQuanity = this.mapCreator.getCollectibleQuanity();
 
         initBoard(mainPlayer);
     }
@@ -101,7 +103,9 @@ public class Board extends JPanel implements ActionListener {
         Graphics2D g2d = (Graphics2D) g;
 
         for (Drawable d : this.drawables) {
-            d.draw(g2d);
+            if (!d.isHidden()) {
+                d.draw(g2d);
+            }
         }
 
     }
@@ -118,7 +122,7 @@ public class Board extends JPanel implements ActionListener {
             System.out.println("KUOLIT :D");
             System.exit(0);  // Väliaikaisratkaisu :D
         }
-        if (mapFinish.isPlayerInFinish()) {
+        if (mapFinish.isPlayerInFinish() && this.mainPlayer.getInventory().getInventorySize() == this.collectibleQuanity) {
             System.out.println("VOITIT :D");
             System.exit(0); // Väliaikaisratkaisu :D
         }

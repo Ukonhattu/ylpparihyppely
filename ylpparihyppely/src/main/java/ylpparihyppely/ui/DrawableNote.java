@@ -23,12 +23,18 @@ import ylpparihyppely.gameobjects.Location;
 import ylpparihyppely.gameobjects.Note;
 
 /**
+ * Note's drawing class.
  *
  * @author daxda
  */
-public class DrawableNote implements Drawable{
-        private final Note note;
+public class DrawableNote implements Drawable {
 
+    private final Note note;
+/**
+ * Construct.
+ * @param note Note
+ * @param color Color.color
+ */
     public DrawableNote(Note note, Color color) {
         this.note = note;
         this.color = color;
@@ -40,5 +46,10 @@ public class DrawableNote implements Drawable{
         g2d.setColor(color);
         Location l = note.getLocation();
         g2d.fillRect(l.getX(), l.getY(), note.getWidth(), note.getHeight());
+    }
+
+    @Override
+    public boolean isHidden() {
+        return this.note.isHidden();
     }
 }

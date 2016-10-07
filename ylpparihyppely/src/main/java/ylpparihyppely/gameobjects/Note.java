@@ -17,10 +17,12 @@
  */
 package ylpparihyppely.gameobjects;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Note-item.
+ *
  * @author daniel
  */
 public class Note extends Item {
@@ -29,7 +31,8 @@ public class Note extends Item {
     HitboxMaker hitboxMaker;
 
     /**
-     *Construct.
+     * Construct.
+     *
      * @param location location
      * @param name name
      * @param width width
@@ -38,10 +41,12 @@ public class Note extends Item {
     public Note(Location location, String name, int width, int height) {
         super(location, name, width, height);
         this.hitboxMaker = new BoxHitboxMaker(this, width, height);
+        this.text = "";
     }
 
     /**
      * Get text attached to note.
+     *
      * @return text of the note
      */
     public String getText() {
@@ -50,6 +55,7 @@ public class Note extends Item {
 
     /**
      * Set note text.
+     *
      * @param text text to the note
      */
     public void setText(String text) {
@@ -58,15 +64,20 @@ public class Note extends Item {
 
     /**
      * Get hitbox.
+     *
      * @return hitbox
      */
     @Override
     public List<Location> getHitbox() {
-        return this.hitboxMaker.makeHitbox();
+        if (!hidden) {
+            return this.hitboxMaker.makeHitbox();
+        }
+        return new ArrayList();
     }
 
     /**
      * When something hits.
+     *
      * @param otherObject static object
      */
     @Override
@@ -75,19 +86,21 @@ public class Note extends Item {
 
     /**
      * When something hits.
+     *
      * @param otherObject physics object
      */
     @Override
     public void onHit(Physics otherObject) {
+        if (otherObject.getClass() == Player.class) {
+            this.hidden = true;
+            Player player = (Player) otherObject;
+            player.getInventory().addCollectible(this);
+        }
     }
-
-
 
     @Override
     Location getHitboxLocation() {
         return this.getLocation();
     }
-
-
 
 }

@@ -19,9 +19,11 @@ package ylpparihyppely.controllers;
 
 /**
  * Controller interface for AI controlling.
+ *
  * @author daxda
  */
-public interface AIController extends Controller{
+public interface AIController extends Controller {
+
     /**
      * For every call.
      */

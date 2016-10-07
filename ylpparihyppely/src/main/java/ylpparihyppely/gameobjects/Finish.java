@@ -20,16 +20,24 @@ package ylpparihyppely.gameobjects;
 import java.util.List;
 
 /**
+ * Finish object. The destination.
  *
  * @author daxda
  */
-public class Finish extends GameObject implements Static{
-    
+public class Finish extends GameObject implements Static {
+
     private HitboxMaker hitboxMaker;
     private int width;
     private int height;
     private boolean playerInFinish;
 
+    /**
+     * Construct.
+     *
+     * @param location location
+     * @param width width
+     * @param height height
+     */
     public Finish(Location location, int width, int height) {
         super(location);
         this.width = width;
@@ -64,7 +72,7 @@ public class Finish extends GameObject implements Static{
 
     @Override
     public void onHit(Physics otherObject) {
-        if (otherObject.getClass() == Player.class ) {
+        if (otherObject.getClass() == Player.class) {
             this.playerInFinish = true;
         }
     }
@@ -72,7 +80,5 @@ public class Finish extends GameObject implements Static{
     public boolean isPlayerInFinish() {
         return playerInFinish;
     }
-    
-    
-    
+
 }

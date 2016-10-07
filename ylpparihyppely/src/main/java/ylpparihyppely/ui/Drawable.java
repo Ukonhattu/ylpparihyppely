@@ -21,14 +21,21 @@ import java.awt.Graphics2D;
 
 /**
  * Objects that can be drawn.
+ *
  * @author daxda
  */
 public interface Drawable {
 
     /**
      * Do the drawing.
+     *
      * @param g2d Graphics2D
      */
     void draw(Graphics2D g2d);
+/**
+ * Is hidden or not. ...
+ * @return boolean
+ */
+    boolean isHidden();
 
 }

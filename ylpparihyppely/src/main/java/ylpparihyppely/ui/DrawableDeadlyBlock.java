@@ -29,7 +29,11 @@ import ylpparihyppely.gameobjects.Location;
 public class DrawableDeadlyBlock implements Drawable {
 
     private final DeadlyBlock dBlock;
-
+/**
+ * Construct.
+ * @param dBlock DeadlyBlock
+ * @param color Color.color
+ */
     public DrawableDeadlyBlock(DeadlyBlock dBlock, Color color) {
         this.dBlock = dBlock;
         this.color = color;
@@ -41,6 +45,11 @@ public class DrawableDeadlyBlock implements Drawable {
         g2d.setColor(color);
         Location l = dBlock.getLocation();
         g2d.fillRect(l.getX(), l.getY(), dBlock.getWidth(), dBlock.getHeight());
+    }
+
+    @Override
+    public boolean isHidden() {
+        return this.dBlock.isHidden();
     }
 
 }
