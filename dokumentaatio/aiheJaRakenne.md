@@ -17,3 +17,11 @@
 
 **Luokkakaavio**
 ![](luokkakaavio.png)
+**Sekvenssikaavioita**
+![](sekvenssikaaviot/pressleftsekvenssi.png)
+-
+![](sekvenssikaaviot/pressrigthsekvenssi.png)
+-
+![](sekvenssikaaviot/presspacesekvenssi.png)
+-
+![](sekvenssikaaviot/actionPerformedsekvenssi.png)
