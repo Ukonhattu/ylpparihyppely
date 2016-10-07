@@ -1,7 +1,7 @@
 # ylpparihyppely
 
 [**Aiheen kuvaus**](dokumentaatio/aiheJaRakenne.md)
-Pieni tasohyppelypeli rakennettu kokonaan ilman apukirjastoja.
+Pieni tasohyppelypeli rakennettu kokonaan ilman apukirjastoja. (Javan mukana tulevat toki :D)
 
 #Dokumentaatio
 [Aiheen kuvaus](dokumentaatio/aiheJaRakenne.md)
