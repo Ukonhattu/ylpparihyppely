@@ -16,4 +16,12 @@
   * Hyppää
 
 **Luokkakaavio**
-![](luokkakaavio.png)
+![](luokkakaavio2.png)
+**Sekvenssikaavioita**
+![](sekvenssikaaviot/pressleftsekvenssi.png)
+-
+![](sekvenssikaaviot/pressrigthsekvenssi.png)
+-
+![](sekvenssikaaviot/presspacesekvenssi.png)
+-
+![](sekvenssikaaviot/actionPerformedsekvenssi.png)
