@@ -121,6 +121,7 @@ public class Board extends JPanel implements ActionListener {
         if (mainPlayer.getHealth() <= 0) {
             System.out.println("KUOLIT :D");
             System.exit(0);  // Väliaikaisratkaisu :D
+            
         }
         if (mapFinish.isPlayerInFinish() && this.mainPlayer.getInventory().getInventorySize() == this.collectibleQuanity) {
             System.out.println("VOITIT :D");

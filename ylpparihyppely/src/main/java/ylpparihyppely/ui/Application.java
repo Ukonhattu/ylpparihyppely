@@ -27,6 +27,8 @@ import javax.swing.JFrame;
  */
 public class Application extends JFrame {
     
+
+    
     /**
      *Start it.
      */
@@ -36,7 +38,7 @@ public class Application extends JFrame {
     }
 
     private void initUI() {
-
+        
         add(new Board());
 
         setSize(1280, 720);
@@ -56,7 +58,12 @@ public class Application extends JFrame {
             @Override
             public void run() {
                 Application ex = new Application();
-                ex.setVisible(true);
+                ex.setVisible(true);                
+               
+
+                
+                
+                
             }
         });
     }
