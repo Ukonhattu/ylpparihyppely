@@ -20,3 +20,4 @@ Päivä | Tunnit | Kuvaus
 30.9 | 3h | Lisätty "partioiva" vihollinen (oranssi laatikko) sekä maali (valkoinen laatikko). Voitolle ja häviölle ei ole vielä kunnollista systeemiä, joten väliaikaisratkaisu System.exit(0);
 5.10 | 1h | Lisätty Note karttaan. Ei vielä toiminnallisuutta.
 7.10 | 4h | Note täytyy nyt kerätä jotta maaliin voi mennä. Lisätty testejä. Lisätty javadocia. Lisätty sekvensiskaavioita. Päivitetyt luokkakaaviota.
+13.10 | 1h | kokeiltu erilaisia tapoja restarttaa peli.
