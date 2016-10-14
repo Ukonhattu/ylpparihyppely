@@ -18,6 +18,8 @@ import static org.junit.Assert.*;
  */
 public class TestPawn {
     
+    private Pawn player;
+    
     public TestPawn() {
     }
     
@@ -31,6 +33,7 @@ public class TestPawn {
     
     @Before
     public void setUp() {
+        this.player = new Player(new Location(30,30), 100);
     }
     
     @After
@@ -40,5 +43,20 @@ public class TestPawn {
     @Test
     public void testMethod() {
         
+    }
+    
+    @Test
+    public void testMove() {
+        player.setDx(1);
+        player.move();
+        assertEquals(true, player.wantedLocation.equals(new Location(31,30)));
+    }
+    
+    @Test
+    public void testJump() {
+        player.setGravity(1);
+        player.jump();
+        player.move();
+        assertEquals(true, player.wantedLocation.equals(new Location(30,27)));
     }
 }

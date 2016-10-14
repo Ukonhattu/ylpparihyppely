@@ -63,10 +63,17 @@ public class Board extends JPanel implements ActionListener {
      */
     public Board() {
 
+        this.physicsEngine = new SimplePhysicsEngine(gravity);
+
+        initMap();
+        initBoard(mainPlayer);
+
+    }
+
+    private void initMap() {
         File map = new File("maps/firstMap.txt");
 
         this.mapCreator = new MapCreatorFile(map);
-        this.physicsEngine = new SimplePhysicsEngine(gravity);
         this.staticObject = this.mapCreator.getStaticMapItems();
         this.physicObject = this.mapCreator.getPhysicsMapItems();
         this.mapCreator.getMainPLayer().setGravity(gravity);
@@ -76,7 +83,6 @@ public class Board extends JPanel implements ActionListener {
         this.mapFinish = this.mapCreator.getFinish();
         this.collectibleQuanity = this.mapCreator.getCollectibleQuanity();
 
-        initBoard(mainPlayer);
     }
 
     private void initBoard(Physics player) {
@@ -120,8 +126,8 @@ public class Board extends JPanel implements ActionListener {
         repaint();
         if (mainPlayer.getHealth() <= 0) {
             System.out.println("KUOLIT :D");
-            System.exit(0);  // Väliaikaisratkaisu :D
-            
+            reset();
+            //System.exit(0);  // Väliaikaisratkaisu :D
         }
         if (mapFinish.isPlayerInFinish() && this.mainPlayer.getInventory().getInventorySize() == this.collectibleQuanity) {
             System.out.println("VOITIT :D");
@@ -140,6 +146,11 @@ public class Board extends JPanel implements ActionListener {
         for (AIController aic : this.aiControllers) {
             aic.tick();
         }
+    }
+    
+    private void reset() {
+        initMap();
+        initBoard(mainPlayer);
     }
 
 }
