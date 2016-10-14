@@ -60,7 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#ylpparihyppely.gameobjects.HitboxMaker.java">ylpparihyppely/gameobjects/HitboxMaker.java</a>
+                  <a href="${project.url}/checkstyle.html#ylpparihyppely.ui.Application.java">ylpparihyppely/ui/Application.java</a>
                 </td>
                 <td>
                   0
@@ -74,7 +74,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#ylpparihyppely.ui.Application.java">ylpparihyppely/ui/Application.java</a>
+                  <a href="${project.url}/checkstyle.html#ylpparihyppely.gameobjects.HitboxMaker.java">ylpparihyppely/gameobjects/HitboxMaker.java</a>
                 </td>
                 <td>
                   0
@@ -172,7 +172,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#ylpparihyppely.gameobjects.Note.java">ylpparihyppely/gameobjects/Note.java</a>
+                  <a href="${project.url}/checkstyle.html#ylpparihyppely.ui.DrawableBlock.java">ylpparihyppely/ui/DrawableBlock.java</a>
                 </td>
                 <td>
                   0
@@ -186,7 +186,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#ylpparihyppely.ui.DrawableBlock.java">ylpparihyppely/ui/DrawableBlock.java</a>
+                  <a href="${project.url}/checkstyle.html#ylpparihyppely.gameobjects.Note.java">ylpparihyppely/gameobjects/Note.java</a>
                 </td>
                 <td>
                   0
@@ -228,20 +228,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#ylpparihyppely.gameobjects.Block.java">ylpparihyppely/gameobjects/Block.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#ylpparihyppely.ui.DrawableNote.java">ylpparihyppely/ui/DrawableNote.java</a>
                 </td>
                 <td>
@@ -256,7 +242,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#ylpparihyppely.gameobjects.Item.java">ylpparihyppely/gameobjects/Item.java</a>
+                  <a href="${project.url}/checkstyle.html#ylpparihyppely.gameobjects.Block.java">ylpparihyppely/gameobjects/Block.java</a>
                 </td>
                 <td>
                   0
@@ -298,7 +284,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#ylpparihyppely.gameobjects.Pawn.java">ylpparihyppely/gameobjects/Pawn.java</a>
+                  <a href="${project.url}/checkstyle.html#ylpparihyppely.gameobjects.Item.java">ylpparihyppely/gameobjects/Item.java</a>
                 </td>
                 <td>
                   0
@@ -326,6 +312,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#ylpparihyppely.gameobjects.Pawn.java">ylpparihyppely/gameobjects/Pawn.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#ylpparihyppely.gameobjects.Location.java">ylpparihyppely/gameobjects/Location.java</a>
                 </td>
                 <td>
@@ -340,7 +340,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#ylpparihyppely.gameobjects.Finish.java">ylpparihyppely/gameobjects/Finish.java</a>
+                  <a href="${project.url}/checkstyle.html#ylpparihyppely.ui.MapCreatorFile.java">ylpparihyppely/ui/MapCreatorFile.java</a>
                 </td>
                 <td>
                   0
@@ -354,7 +354,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#ylpparihyppely.ui.MapCreatorFile.java">ylpparihyppely/ui/MapCreatorFile.java</a>
+                  <a href="${project.url}/checkstyle.html#ylpparihyppely.gameobjects.Finish.java">ylpparihyppely/gameobjects/Finish.java</a>
                 </td>
                 <td>
                   0
