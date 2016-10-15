@@ -7,6 +7,8 @@
   
   Aiheessa tulee pelilogiikan kannalta ottaa huomioon törmäykset (collisions), painovoima, liikkuminen, kerättävät esineet sekä viholliset.
   
+**Kuvaus:**
+GameObject on kaikkien palikoiden äiti. Physics- ja Static- rajapinnat tuovat tarvittavia ominaisuuksia omanlaisilleen objekteille. PhysicsEngine käyttää näitä objekteja hallitessaan kartan fysiikkaa. Palikoilla ei ole mitään rippuvuuksia PhysicsEngineen. PhysicsEngine käyttää palikoita Physics- ja Static- rajapintojen kautta. UI hallitsee karttaa ja alustaa PhysicsEngineen kaikki tarvittavat palikat. UI piirtää palikat niiden ilmoittamaan sijaintiin ja PhysicsEngine päivittää niiden sijainteja. Törmäyksiä hallitaan HitBoxeilla, jotka ovat ArrayListeja Location-olioista. Törmäys tapahtuu, jos hitboxeissa on samoja Location olioita.
 
 **Käyttäjät:** Pelaaja
 
