@@ -24,6 +24,8 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -58,20 +60,25 @@ public class Board extends JPanel implements ActionListener {
     private Finish mapFinish;
     private int collectibleQuanity;
 
+    private List<File> maps;
+    private File currentMap;
+
     /**
      * Make it.
      */
     public Board() {
 
         this.physicsEngine = new SimplePhysicsEngine(gravity);
-
-        initMap();
+        this.maps = getMaps();
+        
+        nextMap();
+        
+        initMap(currentMap);
         initBoard(mainPlayer);
 
     }
 
-    private void initMap() {
-        File map = new File("maps/firstMap.txt");
+    private void initMap(File map) {
 
         this.mapCreator = new MapCreatorFile(map);
         this.staticObject = this.mapCreator.getStaticMapItems();
@@ -125,13 +132,14 @@ public class Board extends JPanel implements ActionListener {
         this.physicsEngine.applyGravity(physicObject, staticObject);
         repaint();
         if (mainPlayer.getHealth() <= 0) {
-            System.out.println("KUOLIT :D");
             reset();
-            //System.exit(0);  // Väliaikaisratkaisu :D
+            
         }
         if (mapFinish.isPlayerInFinish() && this.mainPlayer.getInventory().getInventorySize() == this.collectibleQuanity) {
-            System.out.println("VOITIT :D");
-            System.exit(0); // Väliaikaisratkaisu :D
+            if (!nextMap()) {
+                System.exit(0); 
+            }
+            reset();
         }
 
     }
@@ -147,10 +155,25 @@ public class Board extends JPanel implements ActionListener {
             aic.tick();
         }
     }
-    
+
     private void reset() {
-        initMap();
+        initMap(currentMap);
         initBoard(mainPlayer);
+    }
+
+    private boolean nextMap() {
+        if (this.maps.isEmpty()) {
+            return false;
+        }
+        this.currentMap = this.maps.get(0);
+        this.maps.remove(0);
+        return true;
+
+    }
+
+    private List<File> getMaps() {
+        File folder = new File("maps");
+        return new ArrayList(Arrays.asList(folder.listFiles()));
     }
 
 }
