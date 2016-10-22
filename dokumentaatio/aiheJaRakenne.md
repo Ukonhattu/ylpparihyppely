@@ -20,7 +20,7 @@ Liikkuu A ja D naäppäistä. Hyppää välilyönnillä. Kerää kaikki liilat l
   * Hyppää
 
 **Luokkakaavio**
-![](luokkakaavio2.png)
+![](luokkakaavio4.png)
 **Sekvenssikaavioita**
 ![](sekvenssikaaviot/pressleftsekvenssi.png)
 -
