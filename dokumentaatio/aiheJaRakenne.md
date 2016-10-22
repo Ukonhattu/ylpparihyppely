@@ -19,7 +19,7 @@ Liikkuu A ja D naäppäistä. Hyppää välilyönnillä. Kerää kaikki liilat l
   * Liiku oikealle
   * Hyppää
 
-**Luokkakaavio**
+**Luokkakaavio** (Sori huono photoedit läppärillä :d)
 ![](luokkakaavio4.png)
 **Sekvenssikaavioita**
 ![](sekvenssikaaviot/pressleftsekvenssi.png)
