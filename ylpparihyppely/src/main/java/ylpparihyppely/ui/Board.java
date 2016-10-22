@@ -141,6 +141,10 @@ public class Board extends JPanel implements ActionListener {
             }
             reset();
         }
+        
+        if (this.mainPlayer.getLocation().getY() > 750) {
+            reset();
+        }
 
     }
 

@@ -106,6 +106,9 @@ abstract class PhysicsObject extends GameObject implements Physics {
             this.onAir = false;
         }
         this.setLocation(location);
+        if(this.getLocation().getY() > 750) {
+      
+        }
     }
     
     /**
@@ -116,5 +119,7 @@ abstract class PhysicsObject extends GameObject implements Physics {
     public boolean isOnGround() {
         return !this.onAir;
     }
+    
+
 
 }
