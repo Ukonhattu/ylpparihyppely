@@ -22,3 +22,5 @@ Päivä | Tunnit | Kuvaus
 7.10 | 4h | Note täytyy nyt kerätä jotta maaliin voi mennä. Lisätty testejä. Lisätty javadocia. Lisätty sekvensiskaavioita. Päivitetyt luokkakaaviota.
 13.10 | 1h | kokeiltu erilaisia tapoja restarttaa peli.
 14.10 | 2h | Reset kun kuolee, testejä, jar....
+19.10 | 2h | Dokumentaatiota, uusia mappeja, siistimistä, kaikkien mappien läpikäynti
+21.10 | 2h | Lisätty kuoleminen tiputtaessa, dokumentaatiota, hirveä kuvanmuokkaus luokkakaavioon
