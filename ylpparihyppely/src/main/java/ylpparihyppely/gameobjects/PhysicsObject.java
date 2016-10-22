@@ -19,6 +19,7 @@ package ylpparihyppely.gameobjects;
 
 /**
  * GameObject that has physics.
+ *
  * @author daniel
  */
 abstract class PhysicsObject extends GameObject implements Physics {
@@ -44,6 +45,7 @@ abstract class PhysicsObject extends GameObject implements Physics {
     /**
      * Applies gravity to object once. Actually is tries to move object one
      * down.
+     *
      * @param power The gravitation power, how fast we are going down.
      */
     @Override
@@ -53,6 +55,7 @@ abstract class PhysicsObject extends GameObject implements Physics {
         Location newLocation = new Location(location.getX(), location.getY() + (power * this.gravityScale));
         this.wantedLocation = newLocation;
     }
+
     /**
      * Cancels applied gravity. Used when gravity tries to make move that is not
      * allowed.
@@ -61,8 +64,10 @@ abstract class PhysicsObject extends GameObject implements Physics {
     public void deGravity() {
         this.wantedLocation = this.oldLocation;
     }
+
     /**
      * Returns the location where object is heading to go on next update.
+     *
      * @return location
      */
     @Override
@@ -72,7 +77,8 @@ abstract class PhysicsObject extends GameObject implements Physics {
 
     /**
      * Returns location of hitbox if object were on wantedLocation.
-     * @return 
+     *
+     * @return
      */
     @Override
     public Location getHitboxLocation() {
@@ -86,6 +92,7 @@ abstract class PhysicsObject extends GameObject implements Physics {
 
     /**
      * Returns if object is moving on y-axis.
+     *
      * @return True if object is moving on y-axis.
      */
     @Override
@@ -94,9 +101,10 @@ abstract class PhysicsObject extends GameObject implements Physics {
     }
 
     /**
-     * Moves object on specific  location. Does not care about hitboxes or
+     * Moves object on specific location. Does not care about hitboxes or
      * anything.
-     * @param location 
+     *
+     * @param location
      */
     @Override
     public void moveTo(Location location) {
@@ -106,20 +114,17 @@ abstract class PhysicsObject extends GameObject implements Physics {
             this.onAir = false;
         }
         this.setLocation(location);
-        if(this.getLocation().getY() > 750) {
-      
-        }
+
     }
-    
+
     /**
      * Returns if object is not moving on y-axis.
+     *
      * @return True if not moving on y-axis.
      */
     @Override
     public boolean isOnGround() {
         return !this.onAir;
     }
-    
-
 
 }
