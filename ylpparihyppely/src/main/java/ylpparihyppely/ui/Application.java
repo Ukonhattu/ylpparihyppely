@@ -43,7 +43,7 @@ public class Application extends JFrame {
 
         setSize(1280, 720);
 
-        setTitle("Application");
+        setTitle("The Game");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }    

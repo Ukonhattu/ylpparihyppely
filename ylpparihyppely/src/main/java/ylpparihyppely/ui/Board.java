@@ -18,15 +18,20 @@
 package ylpparihyppely.ui;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import ylpparihyppely.controllers.AIController;
@@ -39,7 +44,7 @@ import ylpparihyppely.physicsengine.PhysicsEngine;
 import ylpparihyppely.physicsengine.SimplePhysicsEngine;
 
 /**
- * Board a.k.a the screen.
+ * Board, the game window.
  *
  * @author daxda
  */
@@ -70,9 +75,10 @@ public class Board extends JPanel implements ActionListener {
 
         this.physicsEngine = new SimplePhysicsEngine(gravity);
         this.maps = getMaps();
-        
+
+        timer = new Timer(delay, this);
+        timer.start();
         nextMap();
-        
         initMap(currentMap);
         initBoard(mainPlayer);
 
@@ -96,9 +102,6 @@ public class Board extends JPanel implements ActionListener {
         addKeyListener(new PlayerController(player));
         setFocusable(true);
         setBackground(Color.BLACK);
-
-        timer = new Timer(delay, this);
-        timer.start();
 
     }
 
@@ -133,15 +136,21 @@ public class Board extends JPanel implements ActionListener {
         repaint();
         if (mainPlayer.getHealth() <= 0) {
             reset();
-            
+
         }
         if (mapFinish.isPlayerInFinish() && this.mainPlayer.getInventory().getInventorySize() == this.collectibleQuanity) {
             if (!nextMap()) {
-                System.exit(0); 
+                
+                if (this.currentMap.getName().equals("won")) {
+                    System.exit(0);
+                }
+                this.currentMap = new File("menu/won");
+                
+
             }
             reset();
         }
-        
+
         if (this.mainPlayer.getLocation().getY() > 750) {
             reset();
         }
@@ -179,5 +188,7 @@ public class Board extends JPanel implements ActionListener {
         File folder = new File("maps");
         return new ArrayList(Arrays.asList(folder.listFiles()));
     }
+
+
 
 }
